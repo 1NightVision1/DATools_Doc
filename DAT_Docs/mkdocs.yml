@@ -1,5 +1,0 @@
-site_name: DAT Docs
-nav:
-    - Home: index.md
-    - Operators: Operators.md
-theme: readthedocs
