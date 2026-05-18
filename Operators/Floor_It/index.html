@@ -54,9 +54,13 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Floor It!</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
                   </li>
@@ -94,11 +98,28 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="floor-it">Floor It!</h1>
-<p>Details for the Floor It! operator.</p>
-<h2 id="description">Description</h2>
-<p>Explain what the Floor It! operator does.</p>
+<p>This operator works on selected mesh objects.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>Moves each selected mesh so its lowest world-space vertex is aligned with the floor at Z = 0.</p>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Iterates over <code>context.selected_objects</code>.</li>
+<li>Skips objects that are not type <code>MESH</code> or have no vertices.</li>
+<li>Computes the minimum Z coordinate of all world-space vertices using <code>obj.matrix_world @ vert.co</code>.</li>
+<li>Subtracts that minimum from <code>obj.location.z</code>.</li>
+<li>The mesh is translated only along the Z axis, preserving X/Y placement.</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<p>Provide examples and options for using Floor It!.</p>
+<ol>
+<li>In Object Mode, select one or more mesh objects.</li>
+<li>Run the <code>dat.floor_it</code> operator from the DAT panel.</li>
+<li>The meshes will be shifted so their bottom-most geometry sits on Z = 0.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>There are no extra options for this operator.</li>
+<li>It uses the selected objects and their world transform to determine the lowest point.</li>
+</ul>
               
             </div>
           </div><footer>

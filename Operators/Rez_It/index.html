@@ -58,9 +58,15 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Rez It!</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
                   </li>
@@ -94,11 +100,42 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="rez-it">Rez It!</h1>
-<p>Details for the Rez It! operator.</p>
-<h2 id="description">Description</h2>
-<p>Explain what the Rez It! operator does.</p>
+<p>This operator works on selected mesh objects.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>Resizes image textures used by selected objects' materials to a target resolution while preserving aspect ratio.</p>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Requires selected mesh objects in the scene.</li>
+<li>Reads the integer value from <code>context.scene.dat_textureresolution</code>.</li>
+<li>Copies each material used by selected objects and names the duplicate <code>Resize_{resolution}_{original_material_name}</code>.</li>
+<li>Walks each material's node tree and processes <code>TEX_IMAGE</code> nodes.</li>
+<li>Copies each image texture and names it <code>Resize_{resolution}_{original_texture_name}</code>.</li>
+<li>Resizes the copied image so its largest dimension equals the chosen resolution.</li>
+<li>Preserves aspect ratio by scaling the shorter dimension proportionally:</li>
+<li>if width &gt; height, height becomes <code>ceil(height * resolution / width)</code></li>
+<li>if width &lt; height, width becomes <code>ceil(width * resolution / height)</code></li>
+<li>if width == height, both dimensions become <code>resolution</code></li>
+<li>Assigns the new resized image to the material node.</li>
+<li>Reuses already resized textures or materials when possible to avoid duplicate processing.</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<ul>
+<li><code>context.scene.dat_textureresolution</code>: IntProperty for the target texture resolution (<code>default=1024</code>, <code>min=1</code>).</li>
+<li><code>processed_materials</code>: internal set to avoid recreating duplicate materials.</li>
+<li><code>processed_textures</code>: internal set to avoid resizing the same texture multiple times.</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<p>Provide examples and options for using Rez It!.</p>
+<ol>
+<li>In Object Mode, select one or more mesh objects.</li>
+<li>Set the desired texture resolution in the DAT panel.</li>
+<li>Run <code>dat.rez_it</code>.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Only node-based materials with image texture nodes are resized.</li>
+<li>Packed images are unpacked before duplication when possible.</li>
+<li>The original textures and materials remain available; new copies are created for resized assets.</li>
+</ul>
               
             </div>
           </div><footer>

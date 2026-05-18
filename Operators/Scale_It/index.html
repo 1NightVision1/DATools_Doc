@@ -56,9 +56,15 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Scale It!</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
                   </li>
@@ -94,11 +100,41 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="scale-it">Scale It!</h1>
-<p>Details for the Scale It! operator.</p>
-<h2 id="description">Description</h2>
-<p>Explain what the Scale It! operator does.</p>
+<p>This operator works on mesh objects when exactly two objects are selected in Object Mode.</p>
+<h2 id="what-it-does">What it does</h2>
+<p>Scales the non-active selected object so its dimension on one chosen axis matches the active object's dimension.</p>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Requires Object Mode, exactly two selected objects, and a valid active object.</li>
+<li>Uses the active object as the source reference and the other selected object as the target.</li>
+<li>Reads <code>context.scene.dat_scale</code> to determine which axis to match: X, Y, or Z.</li>
+<li>Computes the source dimension from <code>active.dimensions[axis_index]</code> and the target dimension from <code>target.dimensions[axis_index]</code>.</li>
+<li>If the target dimension is zero, the operator cancels with an error.</li>
+<li>Calculates <code>scale_factor = source_dim / target_dim</code>.</li>
+<li>Temporarily selects only the target object, makes it active, and calls <code>bpy.ops.transform.resize(value=(scale_factor, scale_factor, scale_factor))</code>.</li>
+<li>Restores the original selection and active object after resizing.</li>
+<li>Stores the last scale factor and target object in scene properties.</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<ul>
+<li><code>context.scene.dat_scale</code>: EnumProperty with values <code>X</code>, <code>Y</code>, <code>Z</code>; selects which axis dimension is matched.</li>
+<li><code>context.scene.dat_scalebuffer</code>: FloatProperty that records the scale factor used.</li>
+<li><code>context.scene.dat_activeobjectbuffer</code>: PointerProperty storing the target object after the operation.</li>
+<li><code>active</code>: the active object used as the dimension source.</li>
+<li><code>target</code>: the other selected object that is scaled.</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<p>Provide examples and options for using Scale It!.</p>
+<ol>
+<li>Select the object to scale first.</li>
+<li>Select the reference object last so it becomes the active object.</li>
+<li>Choose the axis in the DAT panel (<code>X</code>, <code>Y</code>, or <code>Z</code>).</li>
+<li>Run <code>dat.scale_it</code>.</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This operator applies a uniform scale to the target object based on the selected axis.</li>
+<li>The reference object remains unchanged.</li>
+</ul>
               
             </div>
           </div><footer>
