@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DAT_Docs/docs/Operators.md",
+                "file": "DAT_Docs/docs/Operators/Mirror_It.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Operators"
+              "title": "Mirror_It"
             }
           }
         ]
@@ -171,27 +171,27 @@
   },
   "active": "ab93bec177c6fb02",
   "lastOpenFiles": [
-    "DAT_Docs/docs/Installation.md",
-    "DAT_Docs/docs/Operators.md",
-    "DAT_Docs/docs/Operators/Shrink_It.md",
-    "DAT_Docs/docs/Operators/Mirror_It.md",
-    "DAT_Docs/docs/Operators/Rez_It.md",
-    "DAT_Docs/docs/Operators/Scale_It.md",
     "DAT_Docs/docs/Operators/Floor_It.md",
+    "DAT_Docs/docs/Operators/Mirror_It.md",
+    "DAT_Docs/docs/Operators/Shrink_It.md",
+    "DAT_Docs/docs/Operators/Scale_It.md",
+    "DAT_Docs/docs/Operators/Rez_It.md",
+    "DAT_Docs/docs/Operators.md",
     "DAT_Docs/docs/About.md",
-    "DAT_Docs/docs/Operators",
     "DAT_Docs/docs/index.md",
-    "DAT_Docs/docs/Operators/Operators.md",
-    "DAT_Docs/docs/Nuova cartella",
-    "DAT_Docs/docs/img/favicon.ico",
-    "DAT_Docs/docs/img",
-    "DAT_Docs/mkdocs.yml",
-    "DAT_Docs/docs",
-    "DAT_Docs",
-    "DAT_Docs/site/css/fonts/Roboto-Slab-Regular.woff2",
-    "DAT_Docs/site/css/fonts/Roboto-Slab-Regular.woff",
-    "DAT_Docs/site/css/fonts/Roboto-Slab-Bold.woff2",
+    "DAT_Docs/site/About/index.html",
+    "DAT_Docs/site/About",
+    "DAT_Docs/site/404.html",
+    "DAT_Docs/site/search/search_index.json",
+    "DAT_Docs/site/Operators/Shrink_It/index.html",
+    "DAT_Docs/site/Operators/Scale_It/index.html",
+    "DAT_Docs/site/Operators/Rez_It/index.html",
+    "DAT_Docs/site/Operators/Mirror_It/index.html",
+    "DAT_Docs/site/Operators/Floor_It/index.html",
+    "DAT_Docs/site/Operators/Shrink_It",
     "DAT_Docs/site/css/fonts/fontawesome-webfont.svg",
-    "css/fonts/fontawesome-webfont.svg"
+    "DAT_Docs/docs/Installation.md",
+    "css/fonts/fontawesome-webfont.svg",
+    "DAT_Docs/docs/Operators/Operators.md"
   ]
 }
