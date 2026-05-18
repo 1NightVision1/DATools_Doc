@@ -1,5 +1,16 @@
 site_name: DAT Docs
 nav:
-    - Home: index.md
-    - Operators: Operators.md
+    - Introduction: 
+        - Getting Started: index.md
+        - Installation: Installation.md
+        - Operators: Operators.md
+        - About: About.md
+
+    - Tools: 
+        - Floor It!: Operators/Floor_It.md
+        - Scale It!: Operators/Scale_It.md
+        - Rez It!: Operators/Rez_It.md
+        - Mirror It!: Operators/Mirror_It.md
+        - Shrink It!: Operators/Shrink_It.md
+    
 theme: readthedocs

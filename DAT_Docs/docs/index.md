@@ -1,11 +1,5 @@
-# Welcome to MkDocs
+# Welcome to DAT Documentation!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+In here I'll try to add all the functionality of DAT add-on, and what you can do with it.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
+_Remember that this is a program I made to help the community, and it's not in any way connected with DungeonAlchemist™ officially._
