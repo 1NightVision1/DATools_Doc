@@ -47,9 +47,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Operators</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-are-operators">What are Operators?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-are-blender-operators">What are Blender operators?</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#are-there-any-in-dat">Are there any in DAT?</a>
+    <li class="toctree-l2"><a class="reference internal" href="#datools-operators">DATools operators</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-datools-operators">Using DATools operators</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
                   </li>
@@ -94,11 +98,31 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="operators">Operators</h1>
-<p>Tools at your hands</p>
-<h2 id="what-are-operators">What are Operators?</h2>
-<p>An operator, in Blender, is a script you can recall no matter the panel. This means that if you make an operator, for example to open a box that says "Hello World!", if the CONTEXT (basically the window) allows it, it will run.</p>
-<h2 id="are-there-any-in-dat">Are there any in DAT?</h2>
-<p>Most of the custom scripts I've wrote for DAT are operators. You can use the Blender search bar to find DATools everywhere, no matter the panel you're in. This way you can build your own UI, add DATools to other add-on's panels, or run them with favorites.</p>
+<p>Tools at your hands.</p>
+<h2 id="what-are-blender-operators">What are Blender operators?</h2>
+<p>In Blender, an operator is a script command that can be executed from menus, buttons, hotkeys, or the search bar. Operators can run wherever the current context allows, which makes them flexible and reusable.</p>
+<h2 id="datools-operators">DATools operators</h2>
+<p>DATools ships with the following operators:</p>
+<ul>
+<li><code>Floor It!</code> – move selected meshes so their lowest vertex rests on the floor plane at Z = 0.</li>
+<li><code>Scale It!</code> – scale one selected object to match the active object's dimension on a chosen axis.</li>
+<li><code>Mirror It!</code> – mirror selected mesh objects across the X, Y, or Z axis.</li>
+<li><code>Shrink It!</code> – create decimated duplicates of selected meshes, with options to keep or replace originals.</li>
+<li><code>Rez It!</code> – resize textures in selected objects' materials to a target resolution while preserving aspect ratio.</li>
+</ul>
+<h2 id="using-datools-operators">Using DATools operators</h2>
+<ul>
+<li>Open the DAT panel in the 3D View sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
+<li>Select the <code>Tools</code> menu in the panel to display operator buttons.</li>
+<li>Choose any operator and configure the available scene properties as needed.</li>
+<li>Each operator only runs when its expected selection and context requirements are met.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Operators in DATools are implemented as Blender <code>bpy.types.Operator</code> classes.</li>
+<li>Scene properties are used to store operator settings between runs.</li>
+<li>You can access operators from Blender's search bar by typing their names, regardless of the current UI panel.</li>
+</ul>
               
             </div>
           </div><footer>

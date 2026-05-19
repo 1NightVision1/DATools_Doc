@@ -47,7 +47,13 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installation-steps">Installation Steps</a>
+    <li class="toctree-l2"><a class="reference internal" href="#install-datools-in-blender">Install DATools in Blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-datools-ui">Using the DATools UI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#language-support">Language Support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation-site">Documentation Site</a>
     </li>
     </ul>
                   </li>
@@ -94,18 +100,40 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<p>Instructions for installing DAT Docs and its tools.</p>
+<p>Follow these steps to install the DATools add-on and use the documentation site.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Required dependencies</li>
-<li>Supported platforms</li>
+<li>Blender 5.1 or later.</li>
+<li>A copy of the DATools add-on folder.</li>
+<li>Basic familiarity with installing Blender add-ons.</li>
 </ul>
-<h2 id="installation-steps">Installation Steps</h2>
+<h2 id="install-datools-in-blender">Install DATools in Blender</h2>
 <ol>
-<li>Download or clone the repository.</li>
-<li>Install any dependencies.</li>
-<li>Run the setup or start command.</li>
+<li>Open Blender.</li>
+<li>Go to <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
+<li>Click <code>Install...</code> and locate the DATools add-on ZIP file or folder.</li>
+<li>Enable the <code>DATools</code> add-on by checking its checkbox.</li>
+<li>Confirm the add-on appears in the <code>3D View</code> sidebar under the <code>DAT</code> tab.</li>
 </ol>
+<h2 id="using-the-datools-ui">Using the DATools UI</h2>
+<ul>
+<li>The add-on is located in the 3D Viewport sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
+<li>Use the <code>Tools</code> menu to access operator buttons for Floor It!, Scale It!, Mirror It!, Shrink It!, and Rez It!.</li>
+<li>The panel also exposes scene properties used by the operators, such as mirror axis, shrink percentage, and texture resolution.</li>
+</ul>
+<h2 id="language-support">Language Support</h2>
+<p>DATools supports multiple languages through the add-on preferences:</p>
+<ol>
+<li>Open <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
+<li>Find <code>DATools</code> and expand its preferences.</li>
+<li>Select a language using the provided buttons.</li>
+</ol>
+<h2 id="documentation-site">Documentation Site</h2>
+<ul>
+<li>The documentation source lives in the <code>DAT_Docs/docs</code> folder.</li>
+<li>Use MkDocs to build or serve the site if desired.</li>
+<li>The generated site files are available under <code>DAT_Docs/site</code>.</li>
+</ul>
               
             </div>
           </div><footer>

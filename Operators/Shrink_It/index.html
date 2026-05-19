@@ -62,9 +62,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Shrink It!</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#status">Status</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#expected-behavior">Expected behavior</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
@@ -96,18 +100,47 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="shrink-it">Shrink It!</h1>
-<p>This page is a placeholder for a Shrink It! operator.</p>
-<h2 id="status">Status</h2>
-<p>The current DATools package does not include an implemented <code>dat.shrink_it</code> operator in the <code>operators</code> folder.</p>
-<h2 id="expected-behavior">Expected behavior</h2>
-<p>A Shrink It! operator would likely:
-- reduce object size or bake a smaller version of a selected mesh,
-- use an axis, percentage, or numeric scale input,
-- preserve the chosen object as reference for shrinkage.</p>
+<p>The <code>dat.shrink_it</code> operator creates decimated duplicates of selected mesh objects and optionally replaces the originals.</p>
+<h2 id="what-it-does">What it does</h2>
+<ul>
+<li>Duplicates all selected mesh objects and their mesh data.</li>
+<li>Uses a Decimate modifier to reduce the duplicated object geometry according to a percentage.</li>
+<li>Can either keep the original meshes or replace them with the decimated duplicates.</li>
+<li>Optionally applies existing modifiers before decimation.</li>
+<li>Can automatically select the resulting objects after the operation.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Requires Object Mode and one or more selected mesh objects.</li>
+<li>Shows a dialog with the following options:</li>
+<li><code>Shrink Percentage</code>: how much geometry to keep (1–100).</li>
+<li><code>Shrink Mode</code>: <code>Keep Duplicates</code> or <code>Replace Originals</code>.</li>
+<li><code>Apply Modifiers</code>: whether to apply existing modifiers before decimation.</li>
+<li><code>Select Result</code>: whether to select the output objects after running.</li>
+<li>Duplicates each selected mesh and links the duplicate into the same collections.</li>
+<li>Adds a <code>DECIMATE</code> modifier to each duplicate, using <code>ratio = percentage / 100.0</code>.</li>
+<li>Applies the Decimate modifier and preserves the original selection state.</li>
+<li>If <code>Replace Originals</code> is selected, removes original objects and renames duplicates to the original names.</li>
+<li>Restores the previous selection and active object when possible.</li>
+</ul>
+<h2 id="scene-properties">Scene Properties</h2>
+<ul>
+<li><code>context.scene.dat_shrinkpercentage</code>: last used shrink percentage.</li>
+<li><code>context.scene.dat_shrink_mode</code>: <code>KEEP</code> or <code>REPLACE</code> mode.</li>
+<li><code>context.scene.dat_shrink_apply_modifiers</code>: whether existing modifiers were applied before decimation.</li>
+<li><code>context.scene.dat_shrink_select_result</code>: whether to select resulting objects after the operation.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ol>
+<li>In Object Mode, select one or more mesh objects.</li>
+<li>Run <code>dat.shrink_it</code> from the DAT panel.</li>
+<li>Adjust the dialog properties and confirm.</li>
+</ol>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>There are no actual implementation details or scene variables available in this release.</li>
-<li>If the operator is added later, documentation should cover its numeric inputs and active object behavior.</li>
+<li>If <code>Replace Originals</code> is selected, the original objects are removed and duplicates take their names.</li>
+<li>If the shrink percentage is outside 1–100, the operator cancels with a warning.</li>
+<li>The operator preserves existing scene settings so your last chosen values remain available.</li>
 </ul>
               
             </div>

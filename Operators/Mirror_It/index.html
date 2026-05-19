@@ -60,9 +60,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Mirror It!</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#status">Status</a>
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#expected-behavior">Expected behavior</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
@@ -96,18 +100,38 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="mirror-it">Mirror It!</h1>
-<p>This page is a placeholder for a Mirror It! operator.</p>
-<h2 id="status">Status</h2>
-<p>The current DATools package does not contain an implemented <code>dat.mirror_it</code> operator in the <code>operators</code> folder.</p>
-<h2 id="expected-behavior">Expected behavior</h2>
-<p>A Mirror It! operator would typically:
-- mirror selected mesh objects across one or more axes,
-- use the active object or a chosen axis as the mirror reference,
-- preserve object transforms and optionally edit the mesh locally.</p>
+<p>The <code>dat.mirror_it</code> operator mirrors selected mesh objects across a chosen axis.</p>
+<h2 id="what-it-does">What it does</h2>
+<ul>
+<li>Mirrors all selected mesh objects using Blender's transform mirror operator.</li>
+<li>Uses the currently selected axis from the DAT panel or the last remembered scene value.</li>
+<li>Applies object scale after mirroring and recalculates normals for each mirrored mesh.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Requires one or more selected mesh objects in Object Mode.</li>
+<li>Reads <code>context.scene.dat_mirror</code> to determine the mirror axis: <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li>Temporarily selects only mesh objects and sets the pivot point to <code>INDIVIDUAL_ORIGINS</code>.</li>
+<li>Calls <code>bpy.ops.transform.mirror</code> with the chosen constraint axis.</li>
+<li>Applies object scale with <code>bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)</code>.</li>
+<li>Enters Edit Mode on each mirrored object to select all vertices and run <code>bpy.ops.mesh.normals_make_consistent()</code>.</li>
+<li>Restores the original selection, active object, and pivot point.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<ol>
+<li>In Object Mode, select one or more mesh objects.</li>
+<li>Choose the mirror axis in the DAT panel.</li>
+<li>Run <code>dat.mirror_it</code> from the DAT panel.</li>
+</ol>
+<h2 id="scene-properties">Scene Properties</h2>
+<ul>
+<li><code>context.scene.dat_mirror</code>: stores the selected mirror axis.</li>
+</ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Because the operator implementation is not present, there are no actual variables or usage steps available yet.</li>
-<li>If a future version adds <code>dat.mirror_it</code>, it should include axis selection and a mirror reference.</li>
+<li>The operator works only on selected objects of type <code>MESH</code>.</li>
+<li>It preserves the previous object selection and active object after completion.</li>
+<li>The selected mirror axis is remembered in the scene for subsequent operations.</li>
 </ul>
               
             </div>
