@@ -1,40 +1,36 @@
 # Rez It!
 
-This operator works on selected mesh objects.
+The `dat.rez_it` operator resizes image textures used by selected mesh objects.
 
 ## What it does
 
-Resizes image textures used by selected objects' materials to a target resolution while preserving aspect ratio.
+Resizes copied image textures to a target resolution while preserving aspect ratio. The original materials and images remain available.
 
 ## How it works
 
-- Requires selected mesh objects in the scene.
-- Reads the integer value from `context.scene.dat_textureresolution`.
+- Works on selected objects of type `MESH`.
+- Opens a dialog where the target texture resolution can be set.
 - Copies each material used by selected objects and names the duplicate `Resize_{resolution}_{original_material_name}`.
-- Walks each material's node tree and processes `TEX_IMAGE` nodes.
+- Assigns the copied material to the selected object's material slot.
+- Walks each copied material's node tree and processes `TEX_IMAGE` nodes.
 - Copies each image texture and names it `Resize_{resolution}_{original_texture_name}`.
 - Resizes the copied image so its largest dimension equals the chosen resolution.
-- Preserves aspect ratio by scaling the shorter dimension proportionally:
-  - if width > height, height becomes `ceil(height * resolution / width)`
-  - if width < height, width becomes `ceil(width * resolution / height)`
-  - if width == height, both dimensions become `resolution`
-- Assigns the new resized image to the material node.
-- Reuses already resized textures or materials when possible to avoid duplicate processing.
+- Preserves aspect ratio by scaling the shorter dimension proportionally.
+- Reuses already resized materials or images with matching names when possible.
+- Stores the last texture resolution on the scene.
 
-## Variables
+## Scene properties
 
-- `context.scene.dat_textureresolution`: IntProperty for the target texture resolution (`default=1024`, `min=1`).
-- `processed_materials`: internal set to avoid recreating duplicate materials.
-- `processed_textures`: internal set to avoid resizing the same texture multiple times.
+- `context.scene.dat_textureresolution`: target texture resolution, default `1024`, minimum `1`.
 
 ## Usage
 
-1. In Object Mode, select one or more mesh objects.
-2. Set the desired texture resolution in the DAT panel.
-3. Run `dat.rez_it`.
+1. Select one or more mesh objects with image-textured materials.
+2. Run `dat.rez_it` from the DATools `Texture` panel.
+3. Set the target texture resolution in the dialog and confirm.
 
 ## Notes
 
 - Only node-based materials with image texture nodes are resized.
 - Packed images are unpacked before duplication when possible.
-- The original textures and materials remain available; new copies are created for resized assets.
+- The resized copies are assigned to the selected objects; originals are preserved with fake users where applicable.
