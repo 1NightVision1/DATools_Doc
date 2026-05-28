@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Installation - DAT Docs</title>
+    <title>Interface - DAT Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Installation";
-        var mkdocs_page_input_path = "Installation.md";
+        var mkdocs_page_name = "Interface";
+        var mkdocs_page_input_path = "Interface.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -43,21 +43,19 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="..">Getting Started</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Interface</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    <li class="toctree-l2"><a class="reference internal" href="#panel-sections">Panel sections</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-datools-in-blender">Install DATools in Blender</a>
+    <li class="toctree-l2"><a class="reference internal" href="#selecting-sections">Selecting sections</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#using-the-datools-ui">Using the DATools UI</a>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#language-support">Language Support</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#documentation-site">Documentation Site</a>
+    <li class="toctree-l2"><a class="reference internal" href="#language-preferences">Language preferences</a>
     </li>
     </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Interface/">Interface</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/">Operators</a>
                   </li>
@@ -96,7 +94,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Introduction</li>
-      <li class="breadcrumb-item active">Installation</li>
+      <li class="breadcrumb-item active">Interface</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -105,50 +103,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="installation">Installation</h1>
-<p>Follow these steps to install the DATools add-on and use the documentation site.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+                <h1 id="interface">Interface</h1>
+<p>DATools appears in Blender's 3D View sidebar under the <code>DAT</code> tab. The panel uses selectable sections so mesh, texture, lighting, and layout controls can stay in one place without crowding a single list of buttons.</p>
+<h2 id="panel-sections">Panel sections</h2>
 <ul>
-<li>Blender 4.2 or later when installing from the Blender extension manifest.</li>
-<li>A copy of the DATools add-on folder.</li>
-<li>Basic familiarity with installing Blender add-ons.</li>
+<li><code>Blender</code>: reserved for Blender-related DATools controls.</li>
+<li><code>Tools</code>: mesh operators, including Floor It!, Scale It!, Mirror It!, and Shrink It!.</li>
+<li><code>Texture</code>: texture utilities, including Rez It! and Map It!.</li>
+<li><code>Light</code>: controls for adding lights and editing the active light.</li>
+<li><code>I/O</code>: reserved for import and export tools.</li>
+<li><code>Settings</code>: panel layout and display preferences.</li>
 </ul>
-<h2 id="install-datools-in-blender">Install DATools in Blender</h2>
-<ol>
-<li>Open Blender.</li>
-<li>Go to <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
-<li>Click <code>Install...</code> and locate the DATools add-on ZIP file or folder.</li>
-<li>Enable the <code>DATools</code> add-on by checking its checkbox.</li>
-<li>Confirm the add-on appears in the <code>3D View</code> sidebar under the <code>DAT</code> tab.</li>
-</ol>
-<p>The extension manifest declares <code>blender_version_min = "4.2.0"</code>. The legacy <code>bl_info</code> metadata currently lists Blender 5.1, so if you install the add-on through a legacy add-on flow, Blender may display that value in the add-on information.</p>
-<h2 id="using-the-datools-ui">Using the DATools UI</h2>
+<h2 id="selecting-sections">Selecting sections</h2>
 <ul>
-<li>The add-on is located in the 3D Viewport sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
-<li>Use <code>Tools</code> for mesh operators: Floor It!, Scale It!, Mirror It!, and Shrink It!.</li>
-<li>Use <code>Texture</code> for texture operators: Rez It! and Map It!.</li>
-<li>Use <code>Light</code> to add common light types or edit the active light.</li>
-<li>Use <code>Settings</code> to adjust the DATools panel layout, tab labels, button scale, icon scale, and row scale.</li>
+<li>Click a section icon to show that section.</li>
+<li>Use Shift-click to show or hide multiple sections when <code>Shift Multiselect</code> is enabled.</li>
+<li>Use Ctrl-click on a section icon to pin or unpin it.</li>
+<li>Pinned sections stay visible when another section is selected.</li>
+<li>Use the disclosure control in each section header to collapse or expand it.</li>
 </ul>
-<h2 id="language-support">Language Support</h2>
-<p>DATools supports multiple languages through the add-on preferences:</p>
-<ol>
-<li>Open <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
-<li>Find <code>DATools</code> and expand its preferences.</li>
-<li>Select a language using the provided buttons.</li>
-</ol>
-<h2 id="documentation-site">Documentation Site</h2>
+<h2 id="settings">Settings</h2>
+<p>The <code>Settings</code> panel exposes the layout preferences stored on the current scene:</p>
 <ul>
-<li>The documentation source lives in the <code>DAT_Docs/docs</code> folder.</li>
-<li>Use MkDocs to build or serve the site if desired.</li>
-<li>The generated site files are available under <code>DAT_Docs/site</code>.</li>
+<li><code>Vertical Tabs</code>: places selector icons in a vertical toolbar.</li>
+<li><code>Shift Multiselect</code>: uses Shift-click to add or remove visible panels.</li>
+<li><code>Show Tab Labels</code>: displays text labels next to selector icons.</li>
+<li><code>Menu Area Width</code>: controls how much width is used by the selector when tab labels are visible.</li>
+<li><code>Menu Button Size</code>: scales the section selector buttons.</li>
+<li><code>Menu Icon Size</code>: scales selector icons.</li>
+<li><code>Submenu Button Size</code>: scales section header rows.</li>
+<li><code>Text / Row Size</code>: scales text-bearing rows inside the panel.</li>
 </ul>
+<h2 id="language-preferences">Language preferences</h2>
+<p>DATools language is selected from the add-on preferences. The available languages are English, Italian, German, and French. Selecting a language also updates Blender's active interface language to the matching locale when available.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Interface/" class="btn btn-neutral float-right" title="Interface">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Operators/" class="btn btn-neutral float-right" title="Operators">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -171,10 +164,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Interface/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Operators/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -45,6 +45,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Installation/">Installation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -56,8 +58,6 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Mirror_It/">Mirror It!</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Shrink It!</a>
@@ -66,13 +66,21 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dialog-options">Dialog options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -100,53 +108,58 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="shrink-it">Shrink It!</h1>
-<p>The <code>dat.shrink_it</code> operator creates decimated duplicates of selected mesh objects and optionally replaces the originals.</p>
+<p>The <code>dat.shrink_it</code> operator creates decimated duplicates of selected mesh objects and can optionally replace the originals.</p>
 <h2 id="what-it-does">What it does</h2>
 <ul>
 <li>Duplicates all selected mesh objects and their mesh data.</li>
-<li>Uses a Decimate modifier to reduce the duplicated object geometry according to a percentage.</li>
-<li>Can either keep the original meshes or replace them with the decimated duplicates.</li>
-<li>Optionally applies existing modifiers before decimation.</li>
-<li>Can automatically select the resulting objects after the operation.</li>
+<li>Adds and applies a Decimate modifier to each duplicate.</li>
+<li>Keeps the original meshes by default.</li>
+<li>Can replace original objects with the decimated duplicates.</li>
+<li>Can apply existing modifiers on duplicates before decimation.</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <ul>
 <li>Requires Object Mode and one or more selected mesh objects.</li>
-<li>Shows a dialog with the following options:</li>
-<li><code>Shrink Percentage</code>: how much geometry to keep (1–100).</li>
-<li><code>Shrink Mode</code>: <code>Keep Duplicates</code> or <code>Replace Originals</code>.</li>
-<li><code>Apply Modifiers</code>: whether to apply existing modifiers before decimation.</li>
-<li><code>Select Result</code>: whether to select the output objects after running.</li>
-<li>Duplicates each selected mesh and links the duplicate into the same collections.</li>
-<li>Adds a <code>DECIMATE</code> modifier to each duplicate, using <code>ratio = percentage / 100.0</code>.</li>
-<li>Applies the Decimate modifier and preserves the original selection state.</li>
-<li>If <code>Replace Originals</code> is selected, removes original objects and renames duplicates to the original names.</li>
-<li>Restores the previous selection and active object when possible.</li>
+<li>Opens a dialog with shrink settings.</li>
+<li>Duplicates each selected mesh and links the duplicate to the same collections as the source object.</li>
+<li>Names duplicates with the <code>_Shrink</code> suffix before any optional replacement rename.</li>
+<li>Adds a <code>DECIMATE</code> modifier using <code>ratio = shrink_percentage / 100.0</code>.</li>
+<li>Applies the Decimate modifier.</li>
+<li>In <code>REPLACE</code> mode, removes original objects and renames duplicates to the original names.</li>
+<li>Restores selection and active object when possible.</li>
 </ul>
-<h2 id="scene-properties">Scene Properties</h2>
+<h2 id="dialog-options">Dialog options</h2>
+<ul>
+<li><code>Shrink Percentage</code>: percentage of geometry to keep, from 1 to 100.</li>
+<li><code>Shrink Mode</code>: <code>Keep Duplicates</code> or <code>Replace Originals</code>.</li>
+<li><code>Apply Modifiers</code>: applies existing modifiers on duplicates before decimation.</li>
+<li><code>Select Result</code>: selects replacement results when originals are no longer present.</li>
+</ul>
+<h2 id="scene-properties">Scene properties</h2>
 <ul>
 <li><code>context.scene.dat_shrinkpercentage</code>: last used shrink percentage.</li>
-<li><code>context.scene.dat_shrink_mode</code>: <code>KEEP</code> or <code>REPLACE</code> mode.</li>
-<li><code>context.scene.dat_shrink_apply_modifiers</code>: whether existing modifiers were applied before decimation.</li>
-<li><code>context.scene.dat_shrink_select_result</code>: whether to select resulting objects after the operation.</li>
+<li><code>context.scene.dat_shrink_mode</code>: <code>KEEP</code> or <code>REPLACE</code>.</li>
+<li><code>context.scene.dat_shrink_apply_modifiers</code>: whether existing modifiers are applied before decimation.</li>
+<li><code>context.scene.dat_shrink_select_result</code>: whether replacement results should be selected after the operation.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
 <li>In Object Mode, select one or more mesh objects.</li>
-<li>Run <code>dat.shrink_it</code> from the DAT panel.</li>
+<li>Run <code>dat.shrink_it</code> from the DATools <code>Tools</code> panel.</li>
 <li>Adjust the dialog properties and confirm.</li>
 </ol>
 <h2 id="notes">Notes</h2>
 <ul>
+<li>If <code>Keep Duplicates</code> is selected, the original objects remain in the scene and the duplicates are added beside them.</li>
 <li>If <code>Replace Originals</code> is selected, the original objects are removed and duplicates take their names.</li>
-<li>If the shrink percentage is outside 1–100, the operator cancels with a warning.</li>
-<li>The operator preserves existing scene settings so your last chosen values remain available.</li>
+<li>If the shrink percentage is outside 1 to 100, the operator cancels with a warning.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../Mirror_It/" class="btn btn-neutral float-left" title="Mirror It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Rez_It/" class="btn btn-neutral float-right" title="Rez It!">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -171,6 +184,8 @@
     
       <span><a href="../Mirror_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../Rez_It/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

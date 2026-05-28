@@ -45,6 +45,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Installation/">Installation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -56,13 +58,17 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Mirror_It/">Mirror It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Rez It!</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -70,9 +76,9 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Mirror_It/">Mirror It!</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -100,48 +106,44 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="rez-it">Rez It!</h1>
-<p>This operator works on selected mesh objects.</p>
+<p>The <code>dat.rez_it</code> operator resizes image textures used by selected mesh objects.</p>
 <h2 id="what-it-does">What it does</h2>
-<p>Resizes image textures used by selected objects' materials to a target resolution while preserving aspect ratio.</p>
+<p>Resizes copied image textures to a target resolution while preserving aspect ratio. The original materials and images remain available.</p>
 <h2 id="how-it-works">How it works</h2>
 <ul>
-<li>Requires selected mesh objects in the scene.</li>
-<li>Reads the integer value from <code>context.scene.dat_textureresolution</code>.</li>
+<li>Works on selected objects of type <code>MESH</code>.</li>
+<li>Opens a dialog where the target texture resolution can be set.</li>
 <li>Copies each material used by selected objects and names the duplicate <code>Resize_{resolution}_{original_material_name}</code>.</li>
-<li>Walks each material's node tree and processes <code>TEX_IMAGE</code> nodes.</li>
+<li>Assigns the copied material to the selected object's material slot.</li>
+<li>Walks each copied material's node tree and processes <code>TEX_IMAGE</code> nodes.</li>
 <li>Copies each image texture and names it <code>Resize_{resolution}_{original_texture_name}</code>.</li>
 <li>Resizes the copied image so its largest dimension equals the chosen resolution.</li>
-<li>Preserves aspect ratio by scaling the shorter dimension proportionally:</li>
-<li>if width &gt; height, height becomes <code>ceil(height * resolution / width)</code></li>
-<li>if width &lt; height, width becomes <code>ceil(width * resolution / height)</code></li>
-<li>if width == height, both dimensions become <code>resolution</code></li>
-<li>Assigns the new resized image to the material node.</li>
-<li>Reuses already resized textures or materials when possible to avoid duplicate processing.</li>
+<li>Preserves aspect ratio by scaling the shorter dimension proportionally.</li>
+<li>Reuses already resized materials or images with matching names when possible.</li>
+<li>Stores the last texture resolution on the scene.</li>
 </ul>
-<h2 id="variables">Variables</h2>
+<h2 id="scene-properties">Scene properties</h2>
 <ul>
-<li><code>context.scene.dat_textureresolution</code>: IntProperty for the target texture resolution (<code>default=1024</code>, <code>min=1</code>).</li>
-<li><code>processed_materials</code>: internal set to avoid recreating duplicate materials.</li>
-<li><code>processed_textures</code>: internal set to avoid resizing the same texture multiple times.</li>
+<li><code>context.scene.dat_textureresolution</code>: target texture resolution, default <code>1024</code>, minimum <code>1</code>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
-<li>In Object Mode, select one or more mesh objects.</li>
-<li>Set the desired texture resolution in the DAT panel.</li>
-<li>Run <code>dat.rez_it</code>.</li>
+<li>Select one or more mesh objects with image-textured materials.</li>
+<li>Run <code>dat.rez_it</code> from the DATools <code>Texture</code> panel.</li>
+<li>Set the target texture resolution in the dialog and confirm.</li>
 </ol>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Only node-based materials with image texture nodes are resized.</li>
 <li>Packed images are unpacked before duplication when possible.</li>
-<li>The original textures and materials remain available; new copies are created for resized assets.</li>
+<li>The resized copies are assigned to the selected objects; originals are preserved with fake users where applicable.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Scale_It/" class="btn btn-neutral float-left" title="Scale It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Mirror_It/" class="btn btn-neutral float-right" title="Mirror It!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Shrink_It/" class="btn btn-neutral float-left" title="Shrink It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Map_It/" class="btn btn-neutral float-right" title="Map It!">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -164,10 +166,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Scale_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Shrink_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Mirror_It/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Map_It/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

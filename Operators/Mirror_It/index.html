@@ -45,6 +45,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Installation/">Installation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -56,23 +58,27 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
-                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Mirror It!</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene Properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
     </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -104,40 +110,41 @@
 <h2 id="what-it-does">What it does</h2>
 <ul>
 <li>Mirrors all selected mesh objects using Blender's transform mirror operator.</li>
-<li>Uses the currently selected axis from the DAT panel or the last remembered scene value.</li>
-<li>Applies object scale after mirroring and recalculates normals for each mirrored mesh.</li>
+<li>Lets you choose the mirror axis from a dialog or the last stored scene value.</li>
+<li>Applies object scale after mirroring.</li>
+<li>Recalculates normals for each mirrored mesh.</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <ul>
-<li>Requires one or more selected mesh objects in Object Mode.</li>
-<li>Reads <code>context.scene.dat_mirror</code> to determine the mirror axis: <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
-<li>Temporarily selects only mesh objects and sets the pivot point to <code>INDIVIDUAL_ORIGINS</code>.</li>
+<li>Works on selected objects of type <code>MESH</code>.</li>
+<li>Opens a dialog where the axis can be set to <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li>Temporarily selects only mesh objects.</li>
+<li>Sets the transform pivot point to <code>INDIVIDUAL_ORIGINS</code>.</li>
 <li>Calls <code>bpy.ops.transform.mirror</code> with the chosen constraint axis.</li>
 <li>Applies object scale with <code>bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)</code>.</li>
-<li>Enters Edit Mode on each mirrored object to select all vertices and run <code>bpy.ops.mesh.normals_make_consistent()</code>.</li>
+<li>Enters Edit Mode for each mirrored object, selects all vertices, and runs <code>bpy.ops.mesh.normals_make_consistent()</code>.</li>
 <li>Restores the original selection, active object, and pivot point.</li>
+</ul>
+<h2 id="scene-properties">Scene properties</h2>
+<ul>
+<li><code>context.scene.dat_mirror</code>: selected mirror axis, with values <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
 <li>In Object Mode, select one or more mesh objects.</li>
-<li>Choose the mirror axis in the DAT panel.</li>
-<li>Run <code>dat.mirror_it</code> from the DAT panel.</li>
+<li>Run <code>dat.mirror_it</code> from the DATools <code>Tools</code> panel.</li>
+<li>Choose the mirror axis in the dialog and confirm.</li>
 </ol>
-<h2 id="scene-properties">Scene Properties</h2>
-<ul>
-<li><code>context.scene.dat_mirror</code>: stores the selected mirror axis.</li>
-</ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The operator works only on selected objects of type <code>MESH</code>.</li>
-<li>It preserves the previous object selection and active object after completion.</li>
 <li>The selected mirror axis is remembered in the scene for subsequent operations.</li>
+<li>Non-mesh selected objects are ignored.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Rez_It/" class="btn btn-neutral float-left" title="Rez It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Scale_It/" class="btn btn-neutral float-left" title="Scale It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../Shrink_It/" class="btn btn-neutral float-right" title="Shrink It!">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -161,7 +168,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Rez_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Scale_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../Shrink_It/" style="color: #fcfcfc">Next &raquo;</a></span>
