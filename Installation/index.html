@@ -48,6 +48,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#install-datools-in-blender">Install DATools in Blender</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#method-1-install-from-the-blender-repository-recommended">Method 1: install from the Blender repository (recommended)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#method-2-install-from-a-zip-file-or-folder">Method 2: install from a ZIP file or folder</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#using-the-datools-ui">Using the DATools UI</a>
     </li>
@@ -110,10 +116,35 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>Blender 4.2 or later when installing from the Blender extension manifest.</li>
-<li>A copy of the DATools add-on folder.</li>
+<li>An internet connection when installing from the DATools repository.</li>
+<li>A copy of the DATools add-on ZIP file or folder when installing manually.</li>
 <li>Basic familiarity with installing Blender add-ons.</li>
 </ul>
 <h2 id="install-datools-in-blender">Install DATools in Blender</h2>
+<h3 id="method-1-install-from-the-blender-repository-recommended">Method 1: install from the Blender repository (recommended)</h3>
+<p>Installing DATools from the Blender repository is the recommended method because Blender can find the extension from the remote repository and check for available updates.</p>
+<ol>
+<li>Open Blender.</li>
+<li>Go to <code>Edit &gt; Preferences &gt; Get Extensions</code>.</li>
+<li>Open the repositories settings and click the <code>+</code> button.</li>
+<li>Choose <code>Add Remote Repository</code>.</li>
+<li>Paste this repository URL:</li>
+</ol>
+<p><code>text
+   https://nightvision-tools.github.io/DATools/index.json</code></p>
+<ol>
+<li>Confirm the repository and refresh the remote extensions list if needed.</li>
+<li>Search for <code>DATools</code>, then click <code>Install</code>.</li>
+<li>Enable DATools if Blender does not enable it automatically.</li>
+<li>Confirm the add-on appears in the <code>3D View</code> sidebar under the <code>DAT</code> tab.</li>
+</ol>
+<video controls width="100%">
+  <source src="../assets/videos/install-blender-repo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p>For more details about Blender extension repositories, see the <a href="https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html">official Blender Extensions preferences documentation</a>.</p>
+<h3 id="method-2-install-from-a-zip-file-or-folder">Method 2: install from a ZIP file or folder</h3>
 <ol>
 <li>Open Blender.</li>
 <li>Go to <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
