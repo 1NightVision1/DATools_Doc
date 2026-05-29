@@ -53,9 +53,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#script-panel">Script panel</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#language-preferences">Language preferences</a>
     </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Preferences/">Preferences</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Custom_Scripts/">Custom Scripts</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/">Operators</a>
                   </li>
@@ -111,6 +117,7 @@
 <li><code>Tools</code>: mesh operators, including Floor It!, Scale It!, Mirror It!, and Shrink It!.</li>
 <li><code>Texture</code>: texture utilities, including Rez It! and Map It!.</li>
 <li><code>Light</code>: controls for adding lights and editing the active light.</li>
+<li><code>Script</code>: active custom scripts imported through DATools preferences.</li>
 <li><code>I/O</code>: reserved for import and export tools.</li>
 <li><code>Settings</code>: panel layout and display preferences.</li>
 </ul>
@@ -133,7 +140,13 @@
 <li><code>Menu Icon Size</code>: scales selector icons.</li>
 <li><code>Submenu Button Size</code>: scales section header rows.</li>
 <li><code>Text / Row Size</code>: scales text-bearing rows inside the panel.</li>
+<li><code>Show Script Names</code>: shows custom script titles in the Script panel.</li>
+<li><code>Show Script Icons</code>: shows custom script icons in the Script panel.</li>
+<li><code>Align Script Buttons</code>: draws custom script controls in aligned rows.</li>
 </ul>
+<h2 id="script-panel">Script panel</h2>
+<p>The <code>Script</code> panel displays active custom scripts imported from the DATools add-on preferences. For each active script, DATools can show the configured title, icon, and any UI drawn by the script's <code>draw(layout, context)</code> function.</p>
+<p>If no custom scripts are active, the panel displays an empty-state message.</p>
 <h2 id="language-preferences">Language preferences</h2>
 <p>DATools language is selected from the add-on preferences. The available languages are English, Italian, German, and French. Selecting a language also updates Blender's active interface language to the matching locale when available.</p>
               
@@ -141,7 +154,7 @@
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Operators/" class="btn btn-neutral float-right" title="Operators">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Preferences/" class="btn btn-neutral float-right" title="Preferences">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -167,7 +180,7 @@
       <span><a href="../Installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Operators/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Preferences/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

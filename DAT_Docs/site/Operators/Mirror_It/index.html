@@ -47,6 +47,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Preferences/">Preferences</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Custom_Scripts/">Custom Scripts</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -64,7 +68,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#remembered-values">Remembered values</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -125,9 +129,9 @@
 <li>Enters Edit Mode for each mirrored object, selects all vertices, and runs <code>bpy.ops.mesh.normals_make_consistent()</code>.</li>
 <li>Restores the original selection, active object, and pivot point.</li>
 </ul>
-<h2 id="scene-properties">Scene properties</h2>
+<h2 id="remembered-values">Remembered values</h2>
 <ul>
-<li><code>context.scene.dat_mirror</code>: selected mirror axis, with values <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li>Mirror axis: <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>

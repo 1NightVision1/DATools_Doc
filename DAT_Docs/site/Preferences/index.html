@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>About - DAT Docs</title>
+    <title>Preferences - DAT Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "About";
-        var mkdocs_page_input_path = "About.md";
+        var mkdocs_page_name = "Preferences";
+        var mkdocs_page_input_path = "Preferences.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -47,27 +47,21 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Interface/">Interface</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Preferences/">Preferences</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Preferences</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#language">Language</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-scripts">Custom scripts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#icon-viewer-preferences">Icon Viewer preferences</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Custom_Scripts/">Custom Scripts</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/">Operators</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">About</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-datools">What is DATools?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#where-to-find-it">Where to find it</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#language-support">Language support</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#current-metadata">Current metadata</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#author">Author</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../About/">About</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">DAT It!</span></p>
@@ -102,7 +96,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Introduction</li>
-      <li class="breadcrumb-item active">About</li>
+      <li class="breadcrumb-item active">Preferences</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,47 +105,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="about">About</h1>
-<p>DAT Docs provides documentation for the DATools Blender add-on.</p>
-<h2 id="what-is-datools">What is DATools?</h2>
-<p>DATools is a Blender add-on designed to support the DungeonAlchemist import pipeline with utility tools for mesh, texture, and lighting preparation.</p>
-<h2 id="features">Features</h2>
+                <h1 id="preferences">Preferences</h1>
+<p>DATools preferences are available from Blender's add-on preferences after the add-on is enabled.</p>
+<h2 id="language">Language</h2>
+<p>The language section shows the currently selected DATools language and provides buttons for:</p>
 <ul>
-<li><code>Floor It!</code> to snap meshes to the floor.</li>
-<li><code>Scale It!</code> to match one object's dimension to another.</li>
-<li><code>Mirror It!</code> to mirror selected meshes across an axis.</li>
-<li><code>Shrink It!</code> to create decimated duplicates or replace originals.</li>
-<li><code>Rez It!</code> to resize image textures used by selected objects.</li>
-<li><code>Map It!</code> to add or update texture coordinate and mapping nodes on selected materials.</li>
-<li>Light tools to add point, sun, spot, or area lights and edit the active light.</li>
-<li>A Script panel for running imported custom Python scripts inside DATools.</li>
+<li>English</li>
+<li>Italian</li>
+<li>German</li>
+<li>French</li>
 </ul>
-<h2 id="where-to-find-it">Where to find it</h2>
-<ul>
-<li>The add-on appears in Blender's 3D View sidebar under the <code>DAT</code> tab.</li>
-<li>The panel is automatically available after enabling the add-on and contains <code>Blender</code>, <code>Tools</code>, <code>Texture</code>, <code>Light</code>, <code>Script</code>, <code>I/O</code>, and <code>Settings</code> sections.</li>
-</ul>
-<h2 id="language-support">Language support</h2>
-<p>DATools includes a language selection mechanism that allows switching between English, Italian, German, and French from the add-on preferences.</p>
-<h2 id="current-metadata">Current metadata</h2>
-<ul>
-<li>Extension manifest version: <code>1.9.1</code>.</li>
-<li>Legacy <code>bl_info</code> version: <code>1.9.0</code>.</li>
-<li>Extension manifest minimum Blender version: <code>4.2.0</code>.</li>
-<li>Add-on location: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
-<li>Category: <code>3D View</code>.</li>
-<li>Maintainers: Tinazzi Patrick, Dallasrt.</li>
-</ul>
-<h2 id="author">Author</h2>
-<ul>
-<li>Tinazzi Patrick</li>
-</ul>
+<p>Changing the DATools language stores the selected language in the add-on preferences. When Blender has the matching locale available, DATools also updates Blender's active interface language to that locale.</p>
+<h2 id="custom-scripts">Custom scripts</h2>
+<p>The preferences include a <code>Custom Scripts</code> manager. It is used to import Python scripts into DATools, activate or deactivate them, change their display title and icon, and control whether each script appears in the sidebar Script panel.</p>
+<p>Imported scripts are copied into a <code>custom_scripts</code> folder inside the DATools add-on directory. Removing or replacing an imported script deletes DATools' internal copy when that copy is inside the managed folder. The original source file chosen during import is not removed by DATools.</p>
+<h2 id="icon-viewer-preferences">Icon Viewer preferences</h2>
+<p>DATools also shows an <code>Icon Viewer Preferences</code> box when Blender's Icon Viewer add-on is installed and enabled. This section exposes the Icon Viewer add-on's own preference fields, such as icon groups, popup behavior, and panel visibility.</p>
+<p>If Icon Viewer is not enabled, DATools shows an informational message instead.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Operators/" class="btn btn-neutral float-left" title="Operators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Operators/Floor_It/" class="btn btn-neutral float-right" title="Floor It!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Interface/" class="btn btn-neutral float-left" title="Interface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Custom_Scripts/" class="btn btn-neutral float-right" title="Custom Scripts">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -174,10 +150,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Operators/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Interface/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Operators/Floor_It/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Custom_Scripts/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
