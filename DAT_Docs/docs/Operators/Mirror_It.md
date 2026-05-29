@@ -20,9 +20,9 @@ The `dat.mirror_it` operator mirrors selected mesh objects across a chosen axis.
 - Enters Edit Mode for each mirrored object, selects all vertices, and runs `bpy.ops.mesh.normals_make_consistent()`.
 - Restores the original selection, active object, and pivot point.
 
-## Scene properties
+## Remembered values
 
-- `context.scene.dat_mirror`: selected mirror axis, with values `X`, `Y`, or `Z`.
+- Mirror axis: `X`, `Y`, or `Z`.
 
 ## Usage
 

@@ -15,11 +15,12 @@ DATools is a Blender add-on designed to support the DungeonAlchemist import pipe
 - `Rez It!` to resize image textures used by selected objects.
 - `Map It!` to add or update texture coordinate and mapping nodes on selected materials.
 - Light tools to add point, sun, spot, or area lights and edit the active light.
+- A Script panel for running imported custom Python scripts inside DATools.
 
 ## Where to find it
 
 - The add-on appears in Blender's 3D View sidebar under the `DAT` tab.
-- The panel is automatically available after enabling the add-on and contains `Blender`, `Tools`, `Texture`, `Light`, `I/O`, and `Settings` sections.
+- The panel is automatically available after enabling the add-on and contains `Blender`, `Tools`, `Texture`, `Light`, `Script`, `I/O`, and `Settings` sections.
 
 ## Language support
 
@@ -27,10 +28,12 @@ DATools includes a language selection mechanism that allows switching between En
 
 ## Current metadata
 
-- Add-on version: `1.6.8`.
+- Extension manifest version: `1.9.1`.
+- Legacy `bl_info` version: `1.9.0`.
 - Extension manifest minimum Blender version: `4.2.0`.
 - Add-on location: `View3D > Sidebar > DAT`.
 - Category: `3D View`.
+- Maintainers: Tinazzi Patrick, Dallasrt.
 
 ## Author
 

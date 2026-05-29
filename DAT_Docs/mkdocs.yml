@@ -4,6 +4,8 @@ nav:
         - Getting Started: index.md
         - Installation: Installation.md
         - Interface: Interface.md
+        - Preferences: Preferences.md
+        - Custom Scripts: Custom_Scripts.md
         - Operators: Operators.md
         - About: About.md
 

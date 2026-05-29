@@ -19,17 +19,17 @@ The `dat.map_it` operator adds or updates texture mapping nodes on selected mesh
 - Creates or reuses a `ShaderNodeMapping` node named `DAT_MapIt_Mapping` with the label `DAT Map It`.
 - Links the Texture Coordinate `UV` output to the Mapping `Vector` input. If `UV` is unavailable, it falls back to `Generated`.
 - Removes existing links to each image texture `Vector` input, then links the Mapping `Vector` output.
-- Stores the last mapping values on scene properties.
+- Remembers the last mapping values for the current scene.
 
 ## Live updates
 
 After Map It! has created DATools mapping nodes, changing the mapping properties in the `Texture` panel updates selected materials that already contain a DATools mapping node. The panel also shows a live mapping count when selected materials can be updated this way.
 
-## Scene properties
+## Mapping values
 
-- `context.scene.dat_location_x`, `dat_location_y`, `dat_location_z`: mapping location offset.
-- `context.scene.dat_rotation_x`, `dat_rotation_y`, `dat_rotation_z`: mapping rotation values.
-- `context.scene.dat_scale_x`, `dat_scale_y`, `dat_scale_z`: mapping scale values.
+- Location X, Y, and Z: texture mapping offset.
+- Rotation X, Y, and Z: texture mapping rotation.
+- Scale X, Y, and Z: texture mapping scale.
 
 ## Usage
 

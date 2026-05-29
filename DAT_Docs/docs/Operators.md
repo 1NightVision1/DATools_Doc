@@ -19,15 +19,17 @@ DATools ships with the following operators:
 
 The add-on also exposes light helper controls in the `Light` panel. These use Blender's built-in light operators and active light properties rather than a custom DATools operator.
 
+Custom script management is implemented through additional `dat.custom_script_*` operators in the add-on preferences. See `Custom Scripts` for the user workflow and script authoring contract.
+
 ## Using DATools operators
 
 - Open the DAT panel in the 3D View sidebar: `View3D > Sidebar > DAT`.
 - Select `Tools` for mesh operators or `Texture` for texture operators.
-- Choose any operator and configure the available scene properties as needed.
+- Choose any operator and configure the options shown in the DATools panel or dialog.
 - Each operator only runs when its expected selection and context requirements are met.
 
 ## Notes
 
 - Operators in DATools are implemented as Blender `bpy.types.Operator` classes.
-- Scene properties are used to store operator settings between runs.
+- DATools remembers the last-used options between runs where useful.
 - You can access operators from Blender's search bar by typing their names, regardless of the current UI panel.

@@ -19,9 +19,9 @@ Resizes copied image textures to a target resolution while preserving aspect rat
 - Reuses already resized materials or images with matching names when possible.
 - Stores the last texture resolution on the scene.
 
-## Scene properties
+## Options
 
-- `context.scene.dat_textureresolution`: target texture resolution, default `1024`, minimum `1`.
+- Texture Resolution: target texture resolution, default `1024`, minimum `1`.
 
 ## Usage
 

@@ -12,17 +12,17 @@ Scales the non-active selected object uniformly so its dimension on the selected
 - Uses the active object as the source reference.
 - Uses the other selected object as the target to scale.
 - Opens a dialog where the axis can be set to `X`, `Y`, or `Z`.
-- Falls back to `context.scene.dat_scale` when run without the dialog.
+- Uses the last selected scale axis when run without the dialog.
 - Computes `scale_factor = source_dimension / target_dimension`.
 - Temporarily selects only the target object and calls `bpy.ops.transform.resize(value=(scale_factor, scale_factor, scale_factor))`.
 - Restores the original selection and active object.
-- Stores the last axis, scale factor, and target object on scene properties.
+- Remembers the last axis, scale factor, and target object for the current scene.
 
-## Scene properties
+## Remembered values
 
-- `context.scene.dat_scale`: selected axis, with values `X`, `Y`, or `Z`.
-- `context.scene.dat_scalebuffer`: last scale factor used.
-- `context.scene.dat_activeobjectbuffer`: target object from the last successful operation.
+- Scale axis: `X`, `Y`, or `Z`.
+- Last scale factor: the factor used by the last successful operation.
+- Last target object: the object scaled by the last successful operation.
 
 ## Usage
 

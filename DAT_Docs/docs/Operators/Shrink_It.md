@@ -28,12 +28,12 @@ The `dat.shrink_it` operator creates decimated duplicates of selected mesh objec
 - `Apply Modifiers`: applies existing modifiers on duplicates before decimation.
 - `Select Result`: selects replacement results when originals are no longer present.
 
-## Scene properties
+## Remembered values
 
-- `context.scene.dat_shrinkpercentage`: last used shrink percentage.
-- `context.scene.dat_shrink_mode`: `KEEP` or `REPLACE`.
-- `context.scene.dat_shrink_apply_modifiers`: whether existing modifiers are applied before decimation.
-- `context.scene.dat_shrink_select_result`: whether replacement results should be selected after the operation.
+- Shrink percentage: last used percentage.
+- Shrink mode: keep duplicates or replace originals.
+- Apply modifiers: whether existing modifiers are applied before decimation.
+- Select result: whether replacement results should be selected after the operation.
 
 ## Usage
 
