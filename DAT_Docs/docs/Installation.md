@@ -21,7 +21,7 @@ Installing DATools from the Blender repository is the recommended method because
 4. Choose `Add Remote Repository`.
 5. Paste this repository URL:
 
-   ```text
+   ```
    https://nightvision-tools.github.io/DATools/index.json
    ```
 
