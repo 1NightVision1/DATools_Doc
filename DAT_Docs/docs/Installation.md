@@ -5,10 +5,39 @@ Follow these steps to install the DATools add-on and use the documentation site.
 ## Prerequisites
 
 - Blender 4.2 or later when installing from the Blender extension manifest.
-- A copy of the DATools add-on folder.
+- An internet connection when installing from the DATools repository.
+- A copy of the DATools add-on ZIP file or folder when installing manually.
 - Basic familiarity with installing Blender add-ons.
 
 ## Install DATools in Blender
+
+### Method 1: install from the Blender repository (recommended)
+
+Installing DATools from the Blender repository is the recommended method because Blender can find the extension from the remote repository and check for available updates.
+
+1. Open Blender.
+2. Go to `Edit > Preferences > Get Extensions`.
+3. Open the repositories settings and click the `+` button.
+4. Choose `Add Remote Repository`.
+5. Paste this repository URL:
+
+   ```text
+   https://nightvision-tools.github.io/DATools/index.json
+   ```
+
+6. Confirm the repository and refresh the remote extensions list if needed.
+7. Search for `DATools`, then click `Install`.
+8. Enable DATools if Blender does not enable it automatically.
+9. Confirm the add-on appears in the `3D View` sidebar under the `DAT` tab.
+
+<video controls width="100%">
+  <source src="../assets/videos/install-blender-repo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+For more details about Blender extension repositories, see the [official Blender Extensions preferences documentation](https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html).
+
+### Method 2: install from a ZIP file or folder
 
 1. Open Blender.
 2. Go to `Edit > Preferences > Add-ons`.

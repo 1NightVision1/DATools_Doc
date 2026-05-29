@@ -45,6 +45,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Installation/">Installation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -60,7 +62,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -68,11 +70,15 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Mirror_It/">Mirror It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -100,47 +106,46 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="scale-it">Scale It!</h1>
-<p>This operator works on mesh objects when exactly two objects are selected in Object Mode.</p>
+<p>The <code>dat.scale_it</code> operator scales one selected object to match the active object's dimension on a chosen axis.</p>
 <h2 id="what-it-does">What it does</h2>
-<p>Scales the non-active selected object so its dimension on one chosen axis matches the active object's dimension.</p>
+<p>Scales the non-active selected object uniformly so its dimension on the selected axis matches the active object's dimension on that same axis.</p>
 <h2 id="how-it-works">How it works</h2>
 <ul>
 <li>Requires Object Mode, exactly two selected objects, and a valid active object.</li>
-<li>Uses the active object as the source reference and the other selected object as the target.</li>
-<li>Reads <code>context.scene.dat_scale</code> to determine which axis to match: X, Y, or Z.</li>
-<li>Computes the source dimension from <code>active.dimensions[axis_index]</code> and the target dimension from <code>target.dimensions[axis_index]</code>.</li>
-<li>If the target dimension is zero, the operator cancels with an error.</li>
-<li>Calculates <code>scale_factor = source_dim / target_dim</code>.</li>
-<li>Temporarily selects only the target object, makes it active, and calls <code>bpy.ops.transform.resize(value=(scale_factor, scale_factor, scale_factor))</code>.</li>
-<li>Restores the original selection and active object after resizing.</li>
-<li>Stores the last scale factor and target object in scene properties.</li>
+<li>Uses the active object as the source reference.</li>
+<li>Uses the other selected object as the target to scale.</li>
+<li>Opens a dialog where the axis can be set to <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li>Falls back to <code>context.scene.dat_scale</code> when run without the dialog.</li>
+<li>Computes <code>scale_factor = source_dimension / target_dimension</code>.</li>
+<li>Temporarily selects only the target object and calls <code>bpy.ops.transform.resize(value=(scale_factor, scale_factor, scale_factor))</code>.</li>
+<li>Restores the original selection and active object.</li>
+<li>Stores the last axis, scale factor, and target object on scene properties.</li>
 </ul>
-<h2 id="variables">Variables</h2>
+<h2 id="scene-properties">Scene properties</h2>
 <ul>
-<li><code>context.scene.dat_scale</code>: EnumProperty with values <code>X</code>, <code>Y</code>, <code>Z</code>; selects which axis dimension is matched.</li>
-<li><code>context.scene.dat_scalebuffer</code>: FloatProperty that records the scale factor used.</li>
-<li><code>context.scene.dat_activeobjectbuffer</code>: PointerProperty storing the target object after the operation.</li>
-<li><code>active</code>: the active object used as the dimension source.</li>
-<li><code>target</code>: the other selected object that is scaled.</li>
+<li><code>context.scene.dat_scale</code>: selected axis, with values <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li><code>context.scene.dat_scalebuffer</code>: last scale factor used.</li>
+<li><code>context.scene.dat_activeobjectbuffer</code>: target object from the last successful operation.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
-<li>Select the object to scale first.</li>
+<li>Select the object to scale.</li>
 <li>Select the reference object last so it becomes the active object.</li>
-<li>Choose the axis in the DAT panel (<code>X</code>, <code>Y</code>, or <code>Z</code>).</li>
-<li>Run <code>dat.scale_it</code>.</li>
+<li>Run <code>dat.scale_it</code> from the DATools <code>Tools</code> panel.</li>
+<li>Choose the axis in the dialog and confirm.</li>
 </ol>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>This operator applies a uniform scale to the target object based on the selected axis.</li>
+<li>The scale is uniform on all axes. The selected axis is only used to calculate the scale factor.</li>
 <li>The reference object remains unchanged.</li>
+<li>If the target object's selected-axis dimension is zero, the operator cancels.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../Floor_It/" class="btn btn-neutral float-left" title="Floor It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Rez_It/" class="btn btn-neutral float-right" title="Rez It!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Mirror_It/" class="btn btn-neutral float-right" title="Mirror It!">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -166,7 +171,7 @@
       <span><a href="../Floor_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Rez_It/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Mirror_It/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

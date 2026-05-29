@@ -57,6 +57,8 @@
     </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../About/">About</a>
@@ -68,11 +70,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Scale_It/">Scale It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Rez_It/">Rez It!</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Mirror_It/">Mirror It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -103,11 +109,36 @@
 <p>Follow these steps to install the DATools add-on and use the documentation site.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Blender 5.1 or later.</li>
-<li>A copy of the DATools add-on folder.</li>
+<li>Blender 4.2 or later when installing from the Blender extension manifest.</li>
+<li>An internet connection when installing from the DATools repository.</li>
+<li>A copy of the DATools add-on ZIP file or folder when installing manually.</li>
 <li>Basic familiarity with installing Blender add-ons.</li>
 </ul>
 <h2 id="install-datools-in-blender">Install DATools in Blender</h2>
+<h3 id="method-1-install-from-the-blender-repository-recommended">Method 1: install from the Blender repository (recommended)</h3>
+<p>Installing DATools from the Blender repository is the recommended method because Blender can find the extension from the remote repository and check for available updates.</p>
+<ol>
+<li>Open Blender.</li>
+<li>Go to <code>Edit &gt; Preferences &gt; Get Extensions</code>.</li>
+<li>Open the repositories settings and click the <code>+</code> button.</li>
+<li>Choose <code>Add Remote Repository</code>.</li>
+<li>Paste this repository URL:</li>
+</ol>
+<pre><code class="language-text">https://nightvision-tools.github.io/DATools/index.json
+</code></pre>
+<ol start="6">
+<li>Confirm the repository and refresh the remote extensions list if needed.</li>
+<li>Search for <code>DATools</code>, then click <code>Install</code>.</li>
+<li>Enable DATools if Blender does not enable it automatically.</li>
+<li>Confirm the add-on appears in the <code>3D View</code> sidebar under the <code>DAT</code> tab.</li>
+</ol>
+<video controls width="100%">
+  <source src="../assets/videos/install-blender-repo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p>For more details about Blender extension repositories, see the <a href="https://docs.blender.org/manual/en/latest/editors/preferences/extensions.html">official Blender Extensions preferences documentation</a>.</p>
+<h3 id="method-2-install-from-a-zip-file-or-folder">Method 2: install from a ZIP file or folder</h3>
 <ol>
 <li>Open Blender.</li>
 <li>Go to <code>Edit &gt; Preferences &gt; Add-ons</code>.</li>
@@ -115,11 +146,14 @@
 <li>Enable the <code>DATools</code> add-on by checking its checkbox.</li>
 <li>Confirm the add-on appears in the <code>3D View</code> sidebar under the <code>DAT</code> tab.</li>
 </ol>
+<p>The extension manifest declares <code>blender_version_min = "4.2.0"</code>. The legacy <code>bl_info</code> metadata currently lists Blender 5.1, so if you install the add-on through a legacy add-on flow, Blender may display that value in the add-on information.</p>
 <h2 id="using-the-datools-ui">Using the DATools UI</h2>
 <ul>
 <li>The add-on is located in the 3D Viewport sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
-<li>Use the <code>Tools</code> menu to access operator buttons for Floor It!, Scale It!, Mirror It!, Shrink It!, and Rez It!.</li>
-<li>The panel also exposes scene properties used by the operators, such as mirror axis, shrink percentage, and texture resolution.</li>
+<li>Use <code>Tools</code> for mesh operators: Floor It!, Scale It!, Mirror It!, and Shrink It!.</li>
+<li>Use <code>Texture</code> for texture operators: Rez It! and Map It!.</li>
+<li>Use <code>Light</code> to add common light types or edit the active light.</li>
+<li>Use <code>Settings</code> to adjust the DATools panel layout, tab labels, button scale, icon scale, and row scale.</li>
 </ul>
 <h2 id="language-support">Language Support</h2>
 <p>DATools supports multiple languages through the add-on preferences:</p>
@@ -139,7 +173,7 @@
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href=".." class="btn btn-neutral float-left" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Operators/" class="btn btn-neutral float-right" title="Operators">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Interface/" class="btn btn-neutral float-right" title="Interface">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -165,7 +199,7 @@
       <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Operators/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Interface/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

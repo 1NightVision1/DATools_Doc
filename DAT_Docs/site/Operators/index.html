@@ -45,6 +45,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Installation/">Installation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Interface/">Interface</a>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Operators</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#what-are-blender-operators">What are Blender operators?</a>
@@ -66,11 +68,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="Scale_It/">Scale It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="Rez_It/">Rez It!</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="Mirror_It/">Mirror It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="Light_Tools/">Light Tools</a>
                   </li>
               </ul>
       </div>
@@ -104,16 +110,18 @@
 <h2 id="datools-operators">DATools operators</h2>
 <p>DATools ships with the following operators:</p>
 <ul>
-<li><code>Floor It!</code> – move selected meshes so their lowest vertex rests on the floor plane at Z = 0.</li>
-<li><code>Scale It!</code> – scale one selected object to match the active object's dimension on a chosen axis.</li>
-<li><code>Mirror It!</code> – mirror selected mesh objects across the X, Y, or Z axis.</li>
-<li><code>Shrink It!</code> – create decimated duplicates of selected meshes, with options to keep or replace originals.</li>
-<li><code>Rez It!</code> – resize textures in selected objects' materials to a target resolution while preserving aspect ratio.</li>
+<li><code>Floor It!</code>: move selected meshes so their lowest vertex rests on the floor plane at Z = 0.</li>
+<li><code>Scale It!</code>: scale one selected object to match the active object's dimension on a chosen axis.</li>
+<li><code>Mirror It!</code>: mirror selected mesh objects across the X, Y, or Z axis.</li>
+<li><code>Shrink It!</code>: create decimated duplicates of selected meshes, with options to keep or replace originals.</li>
+<li><code>Rez It!</code>: resize textures in selected objects' materials to a target resolution while preserving aspect ratio.</li>
+<li><code>Map It!</code>: add or update texture coordinate and mapping nodes for selected mesh materials.</li>
 </ul>
+<p>The add-on also exposes light helper controls in the <code>Light</code> panel. These use Blender's built-in light operators and active light properties rather than a custom DATools operator.</p>
 <h2 id="using-datools-operators">Using DATools operators</h2>
 <ul>
 <li>Open the DAT panel in the 3D View sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
-<li>Select the <code>Tools</code> menu in the panel to display operator buttons.</li>
+<li>Select <code>Tools</code> for mesh operators or <code>Texture</code> for texture operators.</li>
 <li>Choose any operator and configure the available scene properties as needed.</li>
 <li>Each operator only runs when its expected selection and context requirements are met.</li>
 </ul>
@@ -127,7 +135,7 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Interface/" class="btn btn-neutral float-left" title="Interface"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../About/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -151,7 +159,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../Installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Interface/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../About/" style="color: #fcfcfc">Next &raquo;</a></span>

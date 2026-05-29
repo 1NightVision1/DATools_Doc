@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Floor It! - DAT Docs</title>
+    <title>Light Tools - DAT Docs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Floor It!";
-        var mkdocs_page_input_path = "Operators\\Floor_It.md";
+        var mkdocs_page_name = "Light Tools";
+        var mkdocs_page_input_path = "Operators\\Light_Tools.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -54,17 +54,7 @@
               </ul>
               <p class="caption"><span class="caption-text">DAT It!</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Floor It!</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Floor_It/">Floor It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
                   </li>
@@ -76,7 +66,19 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Light Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-lights">Add lights</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#edit-the-active-light">Edit the active light</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
                   </li>
               </ul>
       </div>
@@ -94,7 +96,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">DAT It!</li>
-      <li class="breadcrumb-item active">Floor It!</li>
+      <li class="breadcrumb-item active">Light Tools</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -103,35 +105,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="floor-it">Floor It!</h1>
-<p>The <code>dat.floor_it</code> operator works on selected mesh objects.</p>
+                <h1 id="light-tools">Light Tools</h1>
+<p>The <code>Light</code> panel provides quick access to Blender light creation and active light editing.</p>
 <h2 id="what-it-does">What it does</h2>
-<p>Moves each selected mesh so its lowest world-space vertex is aligned with the floor at Z = 0.</p>
-<h2 id="how-it-works">How it works</h2>
 <ul>
-<li>Iterates over <code>context.selected_objects</code>.</li>
-<li>Skips objects that are not type <code>MESH</code> or have no vertices.</li>
-<li>Computes the minimum Z coordinate of all world-space vertices using <code>obj.matrix_world @ vert.co</code>.</li>
-<li>Subtracts that minimum from <code>obj.location.z</code>.</li>
-<li>Translates the mesh only along the Z axis, preserving X and Y placement.</li>
+<li>Adds common Blender light types from the DATools sidebar.</li>
+<li>Shows editable properties for the active light object.</li>
+<li>Keeps light controls near the mesh and texture preparation tools used by DATools.</li>
 </ul>
+<h2 id="add-lights">Add lights</h2>
+<p>The panel exposes buttons for Blender's built-in <code>object.light_add</code> operator:</p>
+<ul>
+<li><code>Point</code></li>
+<li><code>Sun</code></li>
+<li><code>Spot</code></li>
+<li><code>Area</code></li>
+</ul>
+<p>Each button creates the matching Blender light type.</p>
+<h2 id="edit-the-active-light">Edit the active light</h2>
+<p>When the active object is a light, the panel shows the light data properties that are available for that light type:</p>
+<ul>
+<li><code>type</code></li>
+<li><code>color</code></li>
+<li><code>energy</code></li>
+<li><code>shadow_soft_size</code>, when supported</li>
+<li><code>angle</code>, when supported</li>
+<li><code>size</code>, when supported</li>
+<li><code>spot_size</code>, when supported</li>
+<li><code>spot_blend</code>, when supported</li>
+</ul>
+<p>If the active object is not a light, the panel displays a prompt to select a light before editing settings.</p>
 <h2 id="usage">Usage</h2>
 <ol>
-<li>Select one or more mesh objects.</li>
-<li>Run <code>dat.floor_it</code> from the DATools <code>Tools</code> panel.</li>
-<li>The selected meshes move so their bottom-most geometry sits on Z = 0.</li>
+<li>Open <code>View3D &gt; Sidebar &gt; DAT &gt; Light</code>.</li>
+<li>Click <code>Point</code>, <code>Sun</code>, <code>Spot</code>, or <code>Area</code> to add a light.</li>
+<li>Select a light object.</li>
+<li>Adjust its available properties directly in the DATools Light panel.</li>
 </ol>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>There are no extra options for this operator.</li>
-<li>The operator uses world-space vertex positions, so object transforms are included when finding the lowest point.</li>
+<li>These controls wrap Blender's built-in light creation and light data properties.</li>
+<li>No custom <code>dat.*</code> light operator is registered for these buttons.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../About/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Scale_It/" class="btn btn-neutral float-right" title="Scale It!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Map_It/" class="btn btn-neutral float-left" title="Map It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -154,10 +174,8 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../About/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Map_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../Scale_It/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
