@@ -47,6 +47,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Preferences/">Preferences</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Custom_Scripts/">Custom Scripts</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -72,7 +76,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#live-updates">Live updates</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mapping-values">Mapping values</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -126,15 +130,15 @@
 <li>Creates or reuses a <code>ShaderNodeMapping</code> node named <code>DAT_MapIt_Mapping</code> with the label <code>DAT Map It</code>.</li>
 <li>Links the Texture Coordinate <code>UV</code> output to the Mapping <code>Vector</code> input. If <code>UV</code> is unavailable, it falls back to <code>Generated</code>.</li>
 <li>Removes existing links to each image texture <code>Vector</code> input, then links the Mapping <code>Vector</code> output.</li>
-<li>Stores the last mapping values on scene properties.</li>
+<li>Remembers the last mapping values for the current scene.</li>
 </ul>
 <h2 id="live-updates">Live updates</h2>
 <p>After Map It! has created DATools mapping nodes, changing the mapping properties in the <code>Texture</code> panel updates selected materials that already contain a DATools mapping node. The panel also shows a live mapping count when selected materials can be updated this way.</p>
-<h2 id="scene-properties">Scene properties</h2>
+<h2 id="mapping-values">Mapping values</h2>
 <ul>
-<li><code>context.scene.dat_location_x</code>, <code>dat_location_y</code>, <code>dat_location_z</code>: mapping location offset.</li>
-<li><code>context.scene.dat_rotation_x</code>, <code>dat_rotation_y</code>, <code>dat_rotation_z</code>: mapping rotation values.</li>
-<li><code>context.scene.dat_scale_x</code>, <code>dat_scale_y</code>, <code>dat_scale_z</code>: mapping scale values.</li>
+<li>Location X, Y, and Z: texture mapping offset.</li>
+<li>Rotation X, Y, and Z: texture mapping rotation.</li>
+<li>Scale X, Y, and Z: texture mapping scale.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>

@@ -47,6 +47,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Preferences/">Preferences</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Custom_Scripts/">Custom Scripts</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
@@ -62,7 +66,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scene-properties">Scene properties</a>
+    <li class="toctree-l2"><a class="reference internal" href="#remembered-values">Remembered values</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
     </li>
@@ -115,17 +119,17 @@
 <li>Uses the active object as the source reference.</li>
 <li>Uses the other selected object as the target to scale.</li>
 <li>Opens a dialog where the axis can be set to <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
-<li>Falls back to <code>context.scene.dat_scale</code> when run without the dialog.</li>
+<li>Uses the last selected scale axis when run without the dialog.</li>
 <li>Computes <code>scale_factor = source_dimension / target_dimension</code>.</li>
 <li>Temporarily selects only the target object and calls <code>bpy.ops.transform.resize(value=(scale_factor, scale_factor, scale_factor))</code>.</li>
 <li>Restores the original selection and active object.</li>
-<li>Stores the last axis, scale factor, and target object on scene properties.</li>
+<li>Remembers the last axis, scale factor, and target object for the current scene.</li>
 </ul>
-<h2 id="scene-properties">Scene properties</h2>
+<h2 id="remembered-values">Remembered values</h2>
 <ul>
-<li><code>context.scene.dat_scale</code>: selected axis, with values <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
-<li><code>context.scene.dat_scalebuffer</code>: last scale factor used.</li>
-<li><code>context.scene.dat_activeobjectbuffer</code>: target object from the last successful operation.</li>
+<li>Scale axis: <code>X</code>, <code>Y</code>, or <code>Z</code>.</li>
+<li>Last scale factor: the factor used by the last successful operation.</li>
+<li>Last target object: the object scaled by the last successful operation.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
