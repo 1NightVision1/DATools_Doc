@@ -55,6 +55,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#script-panel">Script panel</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#io-panel">I/O panel</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#language-preferences">Language preferences</a>
     </li>
     </ul>
@@ -83,6 +85,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Map_It/">Map It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Light_Tools/">Light Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/IO_Tools/">I/O Tools</a>
                   </li>
               </ul>
       </div>
@@ -118,7 +122,7 @@
 <li><code>Texture</code>: texture utilities, including Rez It! and Map It!.</li>
 <li><code>Light</code>: controls for adding lights and editing the active light.</li>
 <li><code>Script</code>: active custom scripts imported through DATools preferences.</li>
-<li><code>I/O</code>: reserved for import and export tools.</li>
+<li><code>I/O</code>: import/export tools for GLTF/GLB, FBX, STL, and USDZ, plus GLTF export profiles and WIP collision helpers.</li>
 <li><code>Settings</code>: panel layout and display preferences.</li>
 </ul>
 <h2 id="selecting-sections">Selecting sections</h2>
@@ -147,6 +151,15 @@
 <h2 id="script-panel">Script panel</h2>
 <p>The <code>Script</code> panel displays active custom scripts imported from the DATools add-on preferences. For each active script, DATools can show the configured title, icon, and any UI drawn by the script's <code>draw(layout, context)</code> function.</p>
 <p>If no custom scripts are active, the panel displays an empty-state message.</p>
+<h2 id="io-panel">I/O panel</h2>
+<p>The <code>I/O</code> panel contains quick import and export actions:</p>
+<ul>
+<li>Import: GLTF/GLB, FBX, STL, and USDZ.</li>
+<li>Export: GLTF/GLB, FBX, and STL.</li>
+<li>Export Profile: select or delete the active GLTF export profile.</li>
+<li>Collision Helpers: WIP controls for future Dungeon Alchemist collision setup.</li>
+</ul>
+<p>Collision helpers are currently visible for testing and documentation purposes, but they are still in development and should not be treated as production-ready.</p>
 <h2 id="language-preferences">Language preferences</h2>
 <p>DATools language is selected from the add-on preferences. The available languages are English, Italian, German, and French. Selecting a language also updates Blender's active interface language to the matching locale when available.</p>
               

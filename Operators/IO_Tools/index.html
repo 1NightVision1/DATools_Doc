@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>I/O Tools - DAT Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "I/O Tools";
+        var mkdocs_page_input_path = "Operators\\IO_Tools.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> DAT Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Interface/">Interface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Preferences/">Preferences</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Custom_Scripts/">Custom Scripts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Operators</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../About/">About</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DAT It!</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Floor_It/">Floor It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Mirror_It/">Mirror It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Map_It/">Map It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Light_Tools/">Light Tools</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">I/O Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#where-to-find-them">Where to find them</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import">Import</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#export">Export</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gltfglb-export">GLTF/GLB export</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#export-options">Export options</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#geometry">Geometry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#object-types">Object types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#animations">Animations</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#export-profiles">Export profiles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#export-warnings">Export warnings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#collision-helpers">Collision helpers</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">DAT Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">DAT It!</li>
+      <li class="breadcrumb-item active">I/O Tools</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="io-tools">I/O Tools</h1>
+<p>The DATools <code>I/O</code> panel collects import and export actions for common Dungeon Alchemist pipeline formats.</p>
+<h2 id="where-to-find-them">Where to find them</h2>
+<ul>
+<li>Sidebar: <code>View3D &gt; Sidebar &gt; DAT &gt; I/O</code>.</li>
+<li>Blender file menus:</li>
+<li><code>File &gt; Import &gt; DATools GLTF/GLB Import</code></li>
+<li><code>File &gt; Import &gt; DATools FBX Import</code></li>
+<li><code>File &gt; Import &gt; DATools STL Import</code></li>
+<li><code>File &gt; Import &gt; DATools USDZ Import</code></li>
+<li><code>File &gt; Export &gt; DATools GLTF/GLB Export...</code></li>
+<li><code>File &gt; Export &gt; DATools FBX Export...</code></li>
+<li><code>File &gt; Export &gt; DATools STL Export...</code></li>
+</ul>
+<h2 id="import">Import</h2>
+<p>DATools exposes quick import operators for:</p>
+<ul>
+<li>GLTF/GLB: <code>.gltf</code>, <code>.glb</code></li>
+<li>FBX: <code>.fbx</code></li>
+<li>STL: <code>.stl</code></li>
+<li>USDZ: <code>.usdz</code></li>
+</ul>
+<p>Each import action opens Blender's file selector and then calls the compatible Blender importer for that format.</p>
+<h2 id="export">Export</h2>
+<p>DATools exposes export operators for:</p>
+<ul>
+<li>GLTF/GLB</li>
+<li>FBX</li>
+<li>STL</li>
+</ul>
+<p>FBX and STL exports are selection-based. They include a <code>Check Materials Before Export</code> option that can warn before exporting materials that may not be safe for the Dungeon Alchemist workflow.</p>
+<h2 id="gltfglb-export">GLTF/GLB export</h2>
+<p>The GLTF/GLB exporter is the most configurable I/O workflow in DATools.</p>
+<h3 id="export-options">Export options</h3>
+<ul>
+<li><code>Format</code>: choose <code>GLB (Binary)</code>, <code>GLTF + BIN + textures</code>, or <code>GLTF (Embedded)</code>.</li>
+<li><code>Scope</code>: export the entire scene, visible objects, or only selected objects.</li>
+<li><code>Apply Modifiers</code>: apply modifiers during export.</li>
+<li><code>Materials</code>: export materials, use placeholder material slots, or export no materials.</li>
+<li><code>Check Materials Before Export</code>: show a warning when unsupported material nodes are found.</li>
+<li><code>Unicode</code>: keep UTF-8 text or strip accents for ASCII-safe JSON output.</li>
+</ul>
+<h3 id="geometry">Geometry</h3>
+<ul>
+<li><code>Triangulate All</code>: temporarily triangulates exported mesh objects.</li>
+<li><code>Curves to Mesh (temp)</code>: converts curves to temporary mesh objects for export.</li>
+<li><code>Text to Mesh (temp)</code>: converts text objects to temporary mesh objects for export.</li>
+<li><code>Surfaces to Mesh (temp)</code>: converts surfaces to temporary mesh objects for export.</li>
+<li><code>Metaball to Mesh (temp)</code>: converts metaballs to temporary mesh objects for export.</li>
+</ul>
+<p>Temporary conversion objects are removed after export.</p>
+<h3 id="object-types">Object types</h3>
+<ul>
+<li><code>Include Empties</code>: includes empty objects.</li>
+<li><code>Include Cameras</code>: includes cameras.</li>
+<li><code>Lights</code>: excludes lights, exports only Sun lights, or exports all supported light types.</li>
+<li><code>Exclude Unsupported Area Lights</code>: skips Area lights when enabled.</li>
+</ul>
+<h3 id="animations">Animations</h3>
+<ul>
+<li><code>Auto (if present)</code>: exports animations only when animation data is detected.</li>
+<li><code>Export</code>: always exports animations.</li>
+<li><code>Exclude</code>: never exports animations.</li>
+</ul>
+<h2 id="export-profiles">Export profiles</h2>
+<p>GLTF export profiles store the exporter settings used by the dialog.</p>
+<ul>
+<li>The active profile is selected in the <code>I/O</code> panel or DATools preferences.</li>
+<li>Opening the GLTF/GLB exporter loads the active profile.</li>
+<li>Completing an export saves the current dialog options back to the active profile.</li>
+<li><code>Save as New Profile</code> creates a new profile with the current export options.</li>
+<li>The built-in <code>Default</code> profile cannot be deleted.</li>
+<li>Non-default profiles can be deleted from the I/O panel or DATools preferences.</li>
+</ul>
+<h2 id="export-warnings">Export warnings</h2>
+<p>When <code>Check Materials Before Export</code> is enabled, DATools checks exported materials for node types that may not be supported by Dungeon Alchemist.</p>
+<p>Currently accepted node types include:</p>
+<ul>
+<li>Principled BSDF</li>
+<li>Image Texture</li>
+<li>Material Output</li>
+<li>Normal Map</li>
+<li>Texture Coordinate</li>
+<li>Reroute</li>
+<li>Mapping</li>
+</ul>
+<p>If unsupported nodes are found, DATools shows an export warning with these actions:</p>
+<ul>
+<li><code>Cancel</code>: stops the pending export.</li>
+<li><code>Continue</code>: continues the export anyway.</li>
+<li><code>Tag Warnings</code>: colors unsupported material nodes red so they are easier to find.</li>
+<li><code>Open Console</code>: opens Blender's console for debugging.</li>
+</ul>
+<h2 id="collision-helpers">Collision helpers</h2>
+<p><strong>WIP: collision settings are still in development and are not usable yet.</strong></p>
+<p>DATools currently shows collision helper controls in the I/O panel and GLTF exporter dialog so the workflow can be tested and documented early. Do not rely on these settings for production exports yet.</p>
+<p>Visible collision controls include:</p>
+<ul>
+<li><code>Toggle</code>: toggles the collision marker on selected objects.</li>
+<li><code>Set On</code>: marks selected objects as collision objects.</li>
+<li><code>Set Off</code>: removes the collision marker from selected objects.</li>
+<li><code>Collision Prefix</code>: planned prefix-based collision naming, default <code>COL_</code>.</li>
+<li><code>Use Prefix for Collisions</code>: planned GLTF export option.</li>
+<li><code>Use Property for Collisions</code>: planned GLTF export option.</li>
+<li><code>Write Collision Manifest (.json)</code>: planned sidecar manifest export.</li>
+</ul>
+<p>The current collision marker key shown by DATools is <code>is_collision</code>.</p>
+<p>Until this workflow is finished, treat collision helpers as non-functional WIP controls.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Light_Tools/" class="btn btn-neutral float-left" title="Light Tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Light_Tools/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
