@@ -17,5 +17,6 @@ nav:
         - Rez It!: Operators/Rez_It.md
         - Map It!: Operators/Map_It.md
         - Light Tools: Operators/Light_Tools.md
+        - I/O Tools: Operators/IO_Tools.md
     
 theme: readthedocs

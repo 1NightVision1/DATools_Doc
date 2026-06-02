@@ -9,7 +9,7 @@ DATools appears in Blender's 3D View sidebar under the `DAT` tab. The panel uses
 - `Texture`: texture utilities, including Rez It! and Map It!.
 - `Light`: controls for adding lights and editing the active light.
 - `Script`: active custom scripts imported through DATools preferences.
-- `I/O`: reserved for import and export tools.
+- `I/O`: import/export tools for GLTF/GLB, FBX, STL, and USDZ, plus GLTF export profiles and WIP collision helpers.
 - `Settings`: panel layout and display preferences.
 
 ## Selecting sections
@@ -41,6 +41,17 @@ The `Settings` panel exposes the layout preferences stored on the current scene:
 The `Script` panel displays active custom scripts imported from the DATools add-on preferences. For each active script, DATools can show the configured title, icon, and any UI drawn by the script's `draw(layout, context)` function.
 
 If no custom scripts are active, the panel displays an empty-state message.
+
+## I/O panel
+
+The `I/O` panel contains quick import and export actions:
+
+- Import: GLTF/GLB, FBX, STL, and USDZ.
+- Export: GLTF/GLB, FBX, and STL.
+- Export Profile: select or delete the active GLTF export profile.
+- Collision Helpers: WIP controls for future Dungeon Alchemist collision setup.
+
+Collision helpers are currently visible for testing and documentation purposes, but they are still in development and should not be treated as production-ready.
 
 ## Language preferences
 

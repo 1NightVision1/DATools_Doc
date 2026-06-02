@@ -54,6 +54,7 @@ The extension manifest declares `blender_version_min = "4.2.0"`. The legacy `bl_
 - Use `Texture` for texture operators: Rez It! and Map It!.
 - Use `Light` to add common light types or edit the active light.
 - Use `Script` to run active custom scripts imported through DATools preferences.
+- Use `I/O` to import GLTF/GLB, FBX, STL, and USDZ files, or export GLTF/GLB, FBX, and STL.
 - Use `Settings` to adjust the DATools panel layout, tab labels, button scale, icon scale, and row scale.
 
 ## Language Support

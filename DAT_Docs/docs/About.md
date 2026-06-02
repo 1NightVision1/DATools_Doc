@@ -16,11 +16,15 @@ DATools is a Blender add-on designed to support the DungeonAlchemist import pipe
 - `Map It!` to add or update texture coordinate and mapping nodes on selected materials.
 - Light tools to add point, sun, spot, or area lights and edit the active light.
 - A Script panel for running imported custom Python scripts inside DATools.
+- I/O tools for GLTF/GLB, FBX, STL, and USDZ workflows.
+- GLTF export profiles and export warnings for materials that may not be supported by Dungeon Alchemist.
+- Collision helper settings for future use. These are currently WIP and not usable in production.
 
 ## Where to find it
 
 - The add-on appears in Blender's 3D View sidebar under the `DAT` tab.
 - The panel is automatically available after enabling the add-on and contains `Blender`, `Tools`, `Texture`, `Light`, `Script`, `I/O`, and `Settings` sections.
+- DATools also adds import/export entries to Blender's top bar File menus.
 
 ## Language support
 
