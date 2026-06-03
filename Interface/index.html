@@ -53,6 +53,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#help-buttons">Help buttons</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#asset-panel">Asset panel</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#script-panel">Script panel</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#io-panel">I/O panel</a>
@@ -79,6 +83,8 @@
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Mirror_It/">Mirror It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Shrink_It/">Shrink It!</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Asset_Tools/">Asset Tools</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Rez_It/">Rez It!</a>
                   </li>
@@ -119,6 +125,7 @@
 <ul>
 <li><code>Blender</code>: reserved for Blender-related DATools controls.</li>
 <li><code>Tools</code>: mesh operators, including Floor It!, Scale It!, Mirror It!, and Shrink It!.</li>
+<li><code>Asset</code>: preview gallery for bundled abstract assets, with actions for adding references and editable copies.</li>
 <li><code>Texture</code>: texture utilities, including Rez It! and Map It!.</li>
 <li><code>Light</code>: controls for adding lights and editing the active light.</li>
 <li><code>Script</code>: active custom scripts imported through DATools preferences.</li>
@@ -144,10 +151,17 @@
 <li><code>Menu Icon Size</code>: scales selector icons.</li>
 <li><code>Submenu Button Size</code>: scales section header rows.</li>
 <li><code>Text / Row Size</code>: scales text-bearing rows inside the panel.</li>
+<li><code>Show Help Buttons</code>: shows question mark buttons that open the relevant documentation page.</li>
 <li><code>Show Script Names</code>: shows custom script titles in the Script panel.</li>
 <li><code>Show Script Icons</code>: shows custom script icons in the Script panel.</li>
 <li><code>Align Script Buttons</code>: draws custom script controls in aligned rows.</li>
+<li><code>Asset Gallery Size</code>: controls the preview popup scale for the Asset panel.</li>
 </ul>
+<h2 id="help-buttons">Help buttons</h2>
+<p>When <code>Show Help Buttons</code> is enabled, DATools shows question mark buttons in supported tool headers. These buttons open the matching documentation page in Blender's browser URL operator.</p>
+<p>Blender online access must be enabled for documentation buttons to open web pages.</p>
+<h2 id="asset-panel">Asset panel</h2>
+<p>The <code>Asset</code> panel displays bundled abstract assets from the DATools asset library. Select an asset thumbnail, then use the action buttons to add or toggle a reference, reimport it, add an editable copy, or remove all asset references.</p>
 <h2 id="script-panel">Script panel</h2>
 <p>The <code>Script</code> panel displays active custom scripts imported from the DATools add-on preferences. For each active script, DATools can show the configured title, icon, and any UI drawn by the script's <code>draw(layout, context)</code> function.</p>
 <p>If no custom scripts are active, the panel displays an empty-state message.</p>

@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Floor It! - DAT Docs</title>
+    <title>Asset Tools - DAT Docs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Floor It!";
-        var mkdocs_page_input_path = "Operators\\Floor_It.md";
+        var mkdocs_page_name = "Asset Tools";
+        var mkdocs_page_input_path = "Operators\\Asset_Tools.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -58,17 +58,7 @@
               </ul>
               <p class="caption"><span class="caption-text">DAT It!</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Floor It!</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Floor_It/">Floor It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Scale_It/">Scale It!</a>
                   </li>
@@ -76,7 +66,23 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Shrink_It/">Shrink It!</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Asset_Tools/">Asset Tools</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Asset Tools</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-it-does">What it does</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#where-to-find-it">Where to find it</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#asset-gallery">Asset gallery</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#actions">Actions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reference-assets-and-editable-copies">Reference assets and editable copies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Rez_It/">Rez It!</a>
                   </li>
@@ -102,7 +108,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">DAT It!</li>
-      <li class="breadcrumb-item active">Floor It!</li>
+      <li class="breadcrumb-item active">Asset Tools</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -111,35 +117,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="floor-it">Floor It!</h1>
-<p>The <code>dat.floor_it</code> operator works on selected mesh objects.</p>
+                <h1 id="asset-tools">Asset Tools</h1>
+<p>The DATools <code>Asset</code> panel provides a thumbnail gallery for bundled abstract assets used as layout or reference helpers.</p>
 <h2 id="what-it-does">What it does</h2>
-<p>Moves each selected mesh so its lowest world-space vertex is aligned with the floor at Z = 0.</p>
-<h2 id="how-it-works">How it works</h2>
 <ul>
-<li>Iterates over <code>context.selected_objects</code>.</li>
-<li>Skips objects that are not type <code>MESH</code> or have no vertices.</li>
-<li>Computes the minimum Z coordinate of all world-space vertices using <code>obj.matrix_world @ vert.co</code>.</li>
-<li>Subtracts that minimum from <code>obj.location.z</code>.</li>
-<li>Translates the mesh only along the Z axis, preserving X and Y placement.</li>
+<li>Reads assets from the bundled <code>DA_Abstract_Asset.blend</code> library.</li>
+<li>Shows available assets as thumbnail previews.</li>
+<li>Adds the selected asset as a scene reference.</li>
+<li>Toggles existing reference assets between visible and hidden.</li>
+<li>Reimports a selected reference asset from the bundled library.</li>
+<li>Adds editable copies that are separate from the original reference object.</li>
+<li>Removes all reference assets while leaving editable copies untouched.</li>
 </ul>
-<h2 id="usage">Usage</h2>
-<ol>
-<li>Select one or more mesh objects.</li>
-<li>Run <code>dat.floor_it</code> from the DATools <code>Tools</code> panel.</li>
-<li>The selected meshes move so their bottom-most geometry sits on Z = 0.</li>
-</ol>
+<h2 id="where-to-find-it">Where to find it</h2>
+<p>Open <code>View3D &gt; Sidebar &gt; DAT &gt; Asset</code>.</p>
+<h2 id="asset-gallery">Asset gallery</h2>
+<p>The asset gallery is populated from the bundled asset library:</p>
+<ul>
+<li>Asset library: <code>asset/DA_Abstract_Asset.blend</code></li>
+<li>Thumbnails: <code>asset/thumbs</code></li>
+</ul>
+<p>If the asset library is missing, unreadable, or empty, DATools shows an error or empty-state message in the Asset panel.</p>
+<h2 id="actions">Actions</h2>
+<p>Select an asset thumbnail first, then use the action buttons:</p>
+<ul>
+<li><code>Add / Hide Asset</code>: adds the selected asset if it is not already present. If the reference already exists, the same button toggles its viewport and render visibility.</li>
+<li><code>Reimport Asset</code>: removes the current reference object and imports a fresh copy from the bundled library.</li>
+<li><code>Add Copy Asset</code>: appends the selected asset as a renamed editable copy. The copy uses its own object name and duplicated mesh data.</li>
+<li><code>Remove All Assets</code>: removes all bundled reference assets from the scene. Renamed editable copies are left in place.</li>
+</ul>
+<h2 id="reference-assets-and-editable-copies">Reference assets and editable copies</h2>
+<p>Reference assets keep their original bundled asset names. DATools uses those names to decide whether an asset is already present and can be hidden, shown, reimported, or removed.</p>
+<p>Editable copies are renamed with a <code>_Copy</code> suffix and are intended for changes. Because they are no longer named like the original bundled references, <code>Remove All Assets</code> leaves them untouched.</p>
+<h2 id="settings">Settings</h2>
+<p>The <code>Settings</code> panel includes <code>Asset Gallery Size</code>, which controls the size of the asset preview popup.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>There are no extra options for this operator.</li>
-<li>The operator uses world-space vertex positions, so object transforms are included when finding the lowest point.</li>
+<li>The Asset panel depends on the bundled <code>.blend</code> library being present in the DATools add-on folder.</li>
+<li>Adding or reimporting an asset selects the imported object.</li>
+<li>Removing all assets asks for confirmation before deleting reference objects.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../About/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Scale_It/" class="btn btn-neutral float-right" title="Scale It!">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Shrink_It/" class="btn btn-neutral float-left" title="Shrink It!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Rez_It/" class="btn btn-neutral float-right" title="Rez It!">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -162,10 +185,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../About/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Shrink_It/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Scale_It/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Rez_It/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
