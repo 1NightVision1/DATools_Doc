@@ -14,6 +14,7 @@ DATools ships with the following operators:
 - `Scale It!`: scale one selected object to match the active object's dimension on a chosen axis.
 - `Mirror It!`: mirror selected mesh objects across the X, Y, or Z axis.
 - `Shrink It!`: create decimated duplicates of selected meshes, with options to keep or replace originals.
+- `Asset` actions: add, hide, reimport, copy, or remove bundled abstract asset references.
 - `Rez It!`: resize textures in selected objects' materials to a target resolution while preserving aspect ratio.
 - `Map It!`: add or update texture coordinate and mapping nodes for selected mesh materials.
 - `Import GLTF/GLB`, `Import FBX`, `Import STL`, and `Import USDZ`: import supported exchange formats through DATools I/O.

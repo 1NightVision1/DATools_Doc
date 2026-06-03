@@ -51,6 +51,7 @@ The extension manifest declares `blender_version_min = "4.2.0"`. The legacy `bl_
 
 - The add-on is located in the 3D Viewport sidebar: `View3D > Sidebar > DAT`.
 - Use `Tools` for mesh operators: Floor It!, Scale It!, Mirror It!, and Shrink It!.
+- Use `Asset` to browse and add abstract reference assets from the bundled asset library.
 - Use `Texture` for texture operators: Rez It! and Map It!.
 - Use `Light` to add common light types or edit the active light.
 - Use `Script` to run active custom scripts imported through DATools preferences.

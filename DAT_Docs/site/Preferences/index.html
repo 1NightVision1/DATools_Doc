@@ -53,6 +53,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#custom-scripts">Custom scripts</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gltf-io">GLTF I/O</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#icon-viewer-preferences">Icon Viewer preferences</a>
     </li>
     </ul>
@@ -74,11 +76,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Shrink_It/">Shrink It!</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/Asset_Tools/">Asset Tools</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Rez_It/">Rez It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Map_It/">Map It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Operators/Light_Tools/">Light Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Operators/IO_Tools/">I/O Tools</a>
                   </li>
               </ul>
       </div>
@@ -119,6 +125,15 @@
 <h2 id="custom-scripts">Custom scripts</h2>
 <p>The preferences include a <code>Custom Scripts</code> manager. It is used to import Python scripts into DATools, activate or deactivate them, change their display title and icon, and control whether each script appears in the sidebar Script panel.</p>
 <p>Imported scripts are copied into a <code>custom_scripts</code> folder inside the DATools add-on directory. Removing or replacing an imported script deletes DATools' internal copy when that copy is inside the managed folder. The original source file chosen during import is not removed by DATools.</p>
+<h2 id="gltf-io">GLTF I/O</h2>
+<p>The preferences include a <code>GLTF I/O</code> section used by the I/O panel and GLTF exporter.</p>
+<ul>
+<li><code>Collision Prefix</code>: WIP setting used by the unfinished collision workflow. The default value is <code>COL_</code>.</li>
+<li><code>Active GLTF Profile</code>: selects the export profile loaded by the GLTF/GLB exporter dialog.</li>
+<li><code>Delete Active</code>: removes the selected export profile when it is not the built-in <code>Default</code> profile.</li>
+</ul>
+<p>The <code>Default</code> profile is built in and cannot be deleted. Export profiles store the options used by the GLTF/GLB exporter so repeated exports can start from the same settings.</p>
+<p>Collision settings are still in development and are not ready for normal use.</p>
 <h2 id="icon-viewer-preferences">Icon Viewer preferences</h2>
 <p>DATools also shows an <code>Icon Viewer Preferences</code> box when Blender's Icon Viewer add-on is installed and enabled. This section exposes the Icon Viewer add-on's own preference fields, such as icon groups, popup behavior, and panel visibility.</p>
 <p>If Icon Viewer is not enabled, DATools shows an informational message instead.</p>

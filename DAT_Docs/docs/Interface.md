@@ -6,6 +6,7 @@ DATools appears in Blender's 3D View sidebar under the `DAT` tab. The panel uses
 
 - `Blender`: reserved for Blender-related DATools controls.
 - `Tools`: mesh operators, including Floor It!, Scale It!, Mirror It!, and Shrink It!.
+- `Asset`: preview gallery for bundled abstract assets, with actions for adding references and editable copies.
 - `Texture`: texture utilities, including Rez It! and Map It!.
 - `Light`: controls for adding lights and editing the active light.
 - `Script`: active custom scripts imported through DATools preferences.
@@ -32,9 +33,21 @@ The `Settings` panel exposes the layout preferences stored on the current scene:
 - `Menu Icon Size`: scales selector icons.
 - `Submenu Button Size`: scales section header rows.
 - `Text / Row Size`: scales text-bearing rows inside the panel.
+- `Show Help Buttons`: shows question mark buttons that open the relevant documentation page.
 - `Show Script Names`: shows custom script titles in the Script panel.
 - `Show Script Icons`: shows custom script icons in the Script panel.
 - `Align Script Buttons`: draws custom script controls in aligned rows.
+- `Asset Gallery Size`: controls the preview popup scale for the Asset panel.
+
+## Help buttons
+
+When `Show Help Buttons` is enabled, DATools shows question mark buttons in supported tool headers. These buttons open the matching documentation page in Blender's browser URL operator.
+
+Blender online access must be enabled for documentation buttons to open web pages.
+
+## Asset panel
+
+The `Asset` panel displays bundled abstract assets from the DATools asset library. Select an asset thumbnail, then use the action buttons to add or toggle a reference, reimport it, add an editable copy, or remove all asset references.
 
 ## Script panel
 

@@ -12,6 +12,7 @@ DATools is a Blender add-on designed to support the DungeonAlchemist import pipe
 - `Scale It!` to match one object's dimension to another.
 - `Mirror It!` to mirror selected meshes across an axis.
 - `Shrink It!` to create decimated duplicates or replace originals.
+- Asset tools to add bundled abstract reference assets or editable asset copies.
 - `Rez It!` to resize image textures used by selected objects.
 - `Map It!` to add or update texture coordinate and mapping nodes on selected materials.
 - Light tools to add point, sun, spot, or area lights and edit the active light.
@@ -19,6 +20,7 @@ DATools is a Blender add-on designed to support the DungeonAlchemist import pipe
 - I/O tools for GLTF/GLB, FBX, STL, and USDZ workflows.
 - GLTF export profiles and export warnings for materials that may not be supported by Dungeon Alchemist.
 - Collision helper settings for future use. These are currently WIP and not usable in production.
+- Help buttons that open the relevant online documentation page from the DATools UI.
 
 ## Where to find it
 
@@ -32,8 +34,8 @@ DATools includes a language selection mechanism that allows switching between En
 
 ## Current metadata
 
-- Extension manifest version: `1.9.1`.
-- Legacy `bl_info` version: `1.9.0`.
+- Extension manifest version: `1.10.1`.
+- Legacy `bl_info` version: `1.10.1`.
 - Extension manifest minimum Blender version: `4.2.0`.
 - Add-on location: `View3D > Sidebar > DAT`.
 - Category: `3D View`.

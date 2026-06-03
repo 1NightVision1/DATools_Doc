@@ -76,11 +76,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="Shrink_It/">Shrink It!</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="Asset_Tools/">Asset Tools</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="Rez_It/">Rez It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="Map_It/">Map It!</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="Light_Tools/">Light Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="IO_Tools/">I/O Tools</a>
                   </li>
               </ul>
       </div>
@@ -118,11 +122,15 @@
 <li><code>Scale It!</code>: scale one selected object to match the active object's dimension on a chosen axis.</li>
 <li><code>Mirror It!</code>: mirror selected mesh objects across the X, Y, or Z axis.</li>
 <li><code>Shrink It!</code>: create decimated duplicates of selected meshes, with options to keep or replace originals.</li>
+<li><code>Asset</code> actions: add, hide, reimport, copy, or remove bundled abstract asset references.</li>
 <li><code>Rez It!</code>: resize textures in selected objects' materials to a target resolution while preserving aspect ratio.</li>
 <li><code>Map It!</code>: add or update texture coordinate and mapping nodes for selected mesh materials.</li>
+<li><code>Import GLTF/GLB</code>, <code>Import FBX</code>, <code>Import STL</code>, and <code>Import USDZ</code>: import supported exchange formats through DATools I/O.</li>
+<li><code>Export GLTF/GLB</code>, <code>Export FBX</code>, and <code>Export STL</code>: export selected or configured content through DATools I/O.</li>
 </ul>
 <p>The add-on also exposes light helper controls in the <code>Light</code> panel. These use Blender's built-in light operators and active light properties rather than a custom DATools operator.</p>
 <p>Custom script management is implemented through additional <code>dat.custom_script_*</code> operators in the add-on preferences. See <code>Custom Scripts</code> for the user workflow and script authoring contract.</p>
+<p>Collision helper operators are currently WIP. They are documented in <code>I/O Tools</code>, but they are not considered usable yet.</p>
 <h2 id="using-datools-operators">Using DATools operators</h2>
 <ul>
 <li>Open the DAT panel in the 3D View sidebar: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
