@@ -59,6 +59,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#minimal-example">Minimal example</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-scripts-with-ai">Creating scripts with AI</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#base-prompt">Base prompt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#review-checklist">Review checklist</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#loading-behavior">Loading behavior</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a>
@@ -166,6 +174,64 @@ classes = (DAT_CUSTOM_OT_hello,)
 def draw(layout, context):
     layout.operator(&quot;dat_custom.hello&quot;, icon=&quot;PLAY&quot;)
 </code></pre>
+<h2 id="creating-scripts-with-ai">Creating scripts with AI</h2>
+<p>You can ask an AI assistant to generate a DATools custom script for you. The safest results usually come from describing the exact action you want, the expected selection, and what should appear in the Script panel.</p>
+<p>Ask for a single <code>.py</code> file that follows the DATools custom script contract:</p>
+<ul>
+<li>Include a <code>draw(layout, context)</code> function.</li>
+<li>Use Blender operators with unique <code>bl_idname</code> values, preferably under a custom prefix such as <code>dat_custom</code>.</li>
+<li>Put all Blender classes in a <code>classes = (...)</code> tuple.</li>
+<li>Use <code>bl_options = {"REGISTER", "UNDO"}</code> for operators that change the scene.</li>
+<li>Validate context before editing objects or data.</li>
+<li>Report clear messages with <code>self.report</code>.</li>
+<li>Avoid destructive file operations, background processes, network calls, and external Python dependencies.</li>
+<li>Avoid running scene-changing code at import time. Put actions inside operators.</li>
+</ul>
+<h3 id="base-prompt">Base prompt</h3>
+<p>Copy this prompt and replace the bracketed parts with your request:</p>
+<pre><code class="language-text">Create a Blender Python script compatible with DATools Custom Scripts.
+
+Goal:
+[Describe exactly what the script should do.]
+
+DATools compatibility requirements:
+- Return one complete `.py` file only.
+- The script must be importable by DATools without extra dependencies.
+- Do not run scene-changing code at import time.
+- Define one or more Blender operators for the actions.
+- Use unique operator `bl_idname` values under the `dat_custom` prefix.
+- Put all Blender classes in a `classes = (...)` tuple.
+- Include a `draw(layout, context)` function that adds the UI controls for the DATools Script panel.
+- Use `bl_options = {&quot;REGISTER&quot;, &quot;UNDO&quot;}` for operators that modify the scene.
+- Validate the current Blender context and selection before making changes.
+- Use `self.report` for success, warning, and error messages.
+- Return `{&quot;FINISHED&quot;}` on success and `{&quot;CANCELLED&quot;}` when requirements are not met.
+- Do not use network access, subprocesses, background timers, or destructive file operations.
+- Do not require packages that are not included with Blender.
+
+User workflow:
+[Describe what the user will select or configure before pressing the button.]
+
+UI requirements:
+[Describe button labels, toggles, sliders, or fields to show in draw(layout, context).]
+
+Safety requirements:
+[Describe anything that must be skipped, preserved, or confirmed.]
+
+Output:
+Provide only the Python code inside one code block.
+</code></pre>
+<h3 id="review-checklist">Review checklist</h3>
+<p>Before importing an AI-generated script into DATools, check that:</p>
+<ul>
+<li>It is a <code>.py</code> file.</li>
+<li>It imports in Blender without external packages.</li>
+<li>It has a <code>draw(layout, context)</code> function.</li>
+<li>It has unique operator names.</li>
+<li>It does not delete files, open network connections, or run actions immediately on import.</li>
+<li>It uses Undo for scene-changing actions.</li>
+<li>It handles empty selections or wrong object types gracefully.</li>
+</ul>
 <h2 id="loading-behavior">Loading behavior</h2>
 <ul>
 <li>Active scripts are loaded when DATools registers.</li>
