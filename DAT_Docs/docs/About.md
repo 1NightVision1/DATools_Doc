@@ -21,11 +21,12 @@ DATools is a Blender add-on designed to support the DungeonAlchemist import pipe
 - GLTF export profiles and export warnings for materials that may not be supported by Dungeon Alchemist.
 - Collision helper settings for future use. These are currently WIP and not usable in production.
 - Help buttons that open the relevant online documentation page from the DATools UI.
+- A Help panel for opening documentation, reporting bugs, and requesting features.
 
 ## Where to find it
 
 - The add-on appears in Blender's 3D View sidebar under the `DAT` tab.
-- The panel is automatically available after enabling the add-on and contains `Blender`, `Tools`, `Texture`, `Light`, `Script`, `I/O`, and `Settings` sections.
+- The panel is automatically available after enabling the add-on and contains `Blender`, `Tools`, `Asset`, `Texture`, `Light`, `Script`, `I/O`, `Settings`, and `Help` sections.
 - DATools also adds import/export entries to Blender's top bar File menus.
 
 ## Language support
@@ -34,12 +35,18 @@ DATools includes a language selection mechanism that allows switching between En
 
 ## Current metadata
 
-- Extension manifest version: `1.10.1`.
-- Legacy `bl_info` version: `1.10.1`.
+- Extension manifest version: `1.12.0`.
+- Legacy `bl_info` version: `1.12.0`.
 - Extension manifest minimum Blender version: `4.2.0`.
+- Extension manifest maximum Blender version: `5.1.2`.
 - Add-on location: `View3D > Sidebar > DAT`.
 - Category: `3D View`.
 - Maintainers: Tinazzi Patrick, Dallasrt.
+
+## Permissions
+
+- `files`: used for importing and exporting files.
+- `network`: used only to open DATools online documentation and GitHub Issues from help buttons.
 
 ## Author
 

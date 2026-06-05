@@ -12,6 +12,7 @@ DATools appears in Blender's 3D View sidebar under the `DAT` tab. The panel uses
 - `Script`: active custom scripts imported through DATools preferences.
 - `I/O`: import/export tools for GLTF/GLB, FBX, STL, and USDZ, plus GLTF export profiles and WIP collision helpers.
 - `Settings`: panel layout and display preferences.
+- `Help`: quick links for documentation, bug reports, and feature requests.
 
 ## Selecting sections
 
@@ -44,6 +45,15 @@ The `Settings` panel exposes the layout preferences stored on the current scene:
 When `Show Help Buttons` is enabled, DATools shows question mark buttons in supported tool headers. These buttons open the matching documentation page in Blender's browser URL operator.
 
 Blender online access must be enabled for documentation buttons to open web pages.
+
+## Help panel
+
+The `Help` panel provides two quick support areas:
+
+- `Bug Reports and Feature Requests`: opens the DATools GitHub Issues page.
+- `Documentation`: opens the DATools online documentation home page.
+
+When reporting an issue, include reproduction steps, the expected result, your Blender version, and your DATools version.
 
 ## Asset panel
 

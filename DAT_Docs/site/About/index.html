@@ -65,6 +65,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#current-metadata">Current metadata</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissions">Permissions</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#author">Author</a>
     </li>
     </ul>
@@ -134,23 +136,30 @@
 <li>GLTF export profiles and export warnings for materials that may not be supported by Dungeon Alchemist.</li>
 <li>Collision helper settings for future use. These are currently WIP and not usable in production.</li>
 <li>Help buttons that open the relevant online documentation page from the DATools UI.</li>
+<li>A Help panel for opening documentation, reporting bugs, and requesting features.</li>
 </ul>
 <h2 id="where-to-find-it">Where to find it</h2>
 <ul>
 <li>The add-on appears in Blender's 3D View sidebar under the <code>DAT</code> tab.</li>
-<li>The panel is automatically available after enabling the add-on and contains <code>Blender</code>, <code>Tools</code>, <code>Texture</code>, <code>Light</code>, <code>Script</code>, <code>I/O</code>, and <code>Settings</code> sections.</li>
+<li>The panel is automatically available after enabling the add-on and contains <code>Blender</code>, <code>Tools</code>, <code>Asset</code>, <code>Texture</code>, <code>Light</code>, <code>Script</code>, <code>I/O</code>, <code>Settings</code>, and <code>Help</code> sections.</li>
 <li>DATools also adds import/export entries to Blender's top bar File menus.</li>
 </ul>
 <h2 id="language-support">Language support</h2>
 <p>DATools includes a language selection mechanism that allows switching between English, Italian, German, and French from the add-on preferences.</p>
 <h2 id="current-metadata">Current metadata</h2>
 <ul>
-<li>Extension manifest version: <code>1.10.1</code>.</li>
-<li>Legacy <code>bl_info</code> version: <code>1.10.1</code>.</li>
+<li>Extension manifest version: <code>1.12.0</code>.</li>
+<li>Legacy <code>bl_info</code> version: <code>1.12.0</code>.</li>
 <li>Extension manifest minimum Blender version: <code>4.2.0</code>.</li>
+<li>Extension manifest maximum Blender version: <code>5.1.2</code>.</li>
 <li>Add-on location: <code>View3D &gt; Sidebar &gt; DAT</code>.</li>
 <li>Category: <code>3D View</code>.</li>
 <li>Maintainers: Tinazzi Patrick, Dallasrt.</li>
+</ul>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li><code>files</code>: used for importing and exporting files.</li>
+<li><code>network</code>: used only to open DATools online documentation and GitHub Issues from help buttons.</li>
 </ul>
 <h2 id="author">Author</h2>
 <ul>

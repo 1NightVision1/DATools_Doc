@@ -57,6 +57,71 @@ def draw(layout, context):
     layout.operator("dat_custom.hello", icon="PLAY")
 ```
 
+## Creating scripts with AI
+
+You can ask an AI assistant to generate a DATools custom script for you. The safest results usually come from describing the exact action you want, the expected selection, and what should appear in the Script panel.
+
+Ask for a single `.py` file that follows the DATools custom script contract:
+
+- Include a `draw(layout, context)` function.
+- Use Blender operators with unique `bl_idname` values, preferably under a custom prefix such as `dat_custom`.
+- Put all Blender classes in a `classes = (...)` tuple.
+- Use `bl_options = {"REGISTER", "UNDO"}` for operators that change the scene.
+- Validate context before editing objects or data.
+- Report clear messages with `self.report`.
+- Avoid destructive file operations, background processes, network calls, and external Python dependencies.
+- Avoid running scene-changing code at import time. Put actions inside operators.
+
+### Base prompt
+
+Copy this prompt and replace the bracketed parts with your request:
+
+```text
+Create a Blender Python script compatible with DATools Custom Scripts.
+
+Goal:
+[Describe exactly what the script should do.]
+
+DATools compatibility requirements:
+- Return one complete `.py` file only.
+- The script must be importable by DATools without extra dependencies.
+- Do not run scene-changing code at import time.
+- Define one or more Blender operators for the actions.
+- Use unique operator `bl_idname` values under the `dat_custom` prefix.
+- Put all Blender classes in a `classes = (...)` tuple.
+- Include a `draw(layout, context)` function that adds the UI controls for the DATools Script panel.
+- Use `bl_options = {"REGISTER", "UNDO"}` for operators that modify the scene.
+- Validate the current Blender context and selection before making changes.
+- Use `self.report` for success, warning, and error messages.
+- Return `{"FINISHED"}` on success and `{"CANCELLED"}` when requirements are not met.
+- Do not use network access, subprocesses, background timers, or destructive file operations.
+- Do not require packages that are not included with Blender.
+
+User workflow:
+[Describe what the user will select or configure before pressing the button.]
+
+UI requirements:
+[Describe button labels, toggles, sliders, or fields to show in draw(layout, context).]
+
+Safety requirements:
+[Describe anything that must be skipped, preserved, or confirmed.]
+
+Output:
+Provide only the Python code inside one code block.
+```
+
+### Review checklist
+
+Before importing an AI-generated script into DATools, check that:
+
+- It is a `.py` file.
+- It imports in Blender without external packages.
+- It has a `draw(layout, context)` function.
+- It has unique operator names.
+- It does not delete files, open network connections, or run actions immediately on import.
+- It uses Undo for scene-changing actions.
+- It handles empty selections or wrong object types gracefully.
+
 ## Loading behavior
 
 - Active scripts are loaded when DATools registers.

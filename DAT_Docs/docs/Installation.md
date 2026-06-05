@@ -57,6 +57,9 @@ The extension manifest declares `blender_version_min = "4.2.0"`. The legacy `bl_
 - Use `Script` to run active custom scripts imported through DATools preferences.
 - Use `I/O` to import GLTF/GLB, FBX, STL, and USDZ files, or export GLTF/GLB, FBX, and STL.
 - Use `Settings` to adjust the DATools panel layout, tab labels, button scale, icon scale, and row scale.
+- Use `Help` to open the online documentation or the DATools GitHub Issues page.
+
+Help links require Blender online access because DATools opens web pages from inside Blender.
 
 ## Language Support
 
