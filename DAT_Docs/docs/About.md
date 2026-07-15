@@ -38,7 +38,7 @@ DATools includes a language selection mechanism that allows switching between En
 - Extension manifest version: `1.12.0`.
 - Legacy `bl_info` version: `1.12.0`.
 - Extension manifest minimum Blender version: `4.2.0`.
-- Extension manifest maximum Blender version: `5.1.2`.
+- Extension manifest maximum Blender version: `5.2.0`.
 - Add-on location: `View3D > Sidebar > DAT`.
 - Category: `3D View`.
 - Maintainers: Tinazzi Patrick, Dallasrt.

@@ -45,7 +45,7 @@ For more details about Blender extension repositories, see the [official Blender
 4. Enable the `DATools` add-on by checking its checkbox.
 5. Confirm the add-on appears in the `3D View` sidebar under the `DAT` tab.
 
-The extension manifest declares `blender_version_min = "4.2.0"`. The legacy `bl_info` metadata currently lists Blender 5.1, so if you install the add-on through a legacy add-on flow, Blender may display that value in the add-on information.
+The extension manifest declares `blender_version_min = "4.2.0"`. The legacy `bl_info` metadata currently lists Blender 5.2.0, so if you install the add-on through a legacy add-on flow, Blender may display that value in the add-on information.
 
 ## Using the DATools UI
 
